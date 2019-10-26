@@ -1,0 +1,15 @@
+<html>
+<head>
+   <LINK REL=STYLdESHEET TYPE="text/css" HREF="rvf.css" TITLE="none">
+   <meta name="keywords" content="Lego; Mindstorms; PIC; JAL; JALcc; Robotics">
+   <meta name="author" content="Stef Mientki">
+   <title>%title</title>
+   <link rel="icon" href="jalccring.gif" type="image/gif">
+</head>
+<!--------------------------------- F 3 --- starts ----------------------------------->
+<frameset cols="25%,*" framespacing="0">
+  <frame name="b" src="%indexpage">
+  <frame name="a" src="%mainpage">
+</frameset>
+</html>
+

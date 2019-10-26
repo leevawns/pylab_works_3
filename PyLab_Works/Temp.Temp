@@ -1,0 +1,21 @@
+# create the ojects and initialize them
+import visual
+ball    = visual.sphere(radius=2)
+ball.x  = 0
+ball.y  = 150
+ball.vx = 1
+ball.vy = 0
+
+# simulation that runs continuously
+while True :
+  dt   = 0.1
+
+  ball.x   = ball.x + ball.vx * dt
+  ball.vx *= 0.997
+
+  ball.y   = ball.y - ball.vy * dt
+  if ( ball.y <= 0 ) and ( ball.vy > 0 ) :
+    ball.vy = -0.8 * ball.vy
+    ball.y  = 0
+  else :
+    ball.vy = ball.vy + 9.8 * dt

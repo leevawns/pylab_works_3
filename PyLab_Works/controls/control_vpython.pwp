@@ -1,0 +1,6 @@
+[empty]
+empty = 0
+[Scintilla Editor]
+LineNo = 0
+BM = '(dp0\n.'
+BP = "(dp0\nS'control_vpython.py'\np1\n(dp2\nI16\n(lp3\nS''\np4\naI01\nasI22\n(lp5\ng4\naI01\nass."

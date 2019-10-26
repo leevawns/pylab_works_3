@@ -1,0 +1,32 @@
+[empty]
+empty = 0
+[Application Window]
+Running = True
+Visible = True
+Pos = (20, 360)
+Size = (1002, 587)
+Panes = 'layout2|name=SN5;caption=2D Scene (Plotting);state=17152;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=100;besth=40;minw=100;minh=40;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SN6;caption=Code Editor 2 (Plotting);state=2044;dir=4;layer=0;row=0;pos=0;prop=100000;bestw=100;besth=40;minw=100;minh=40;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=102|dock_size(4,0,0)=491|'
+[Device SN5]
+Caption = '2D Scene'
+X-Pos = 68.0
+Y-Pos = 201.0
+Width = 105.0
+Height = 37.0
+Color On = (250, 150, 90)
+ttype = 'brick_Plotting.t_Scene_2D'
+CS_gen = [1]
+[Device SN6]
+Caption = 'Code Editor 2'
+X-Pos = 19.0
+Y-Pos = 55.0
+Width = 113.0
+Height = 37.0
+Color On = (250, 150, 90)
+ttype = 'brick_Plotting.t_Code_Editor_2'
+CS_ = '# create the ojects and initialize them\r\ndef init ():\r\n
+  self.Create_Axis ( 0, 0 )\r\n
+  self.R = self.Create_Rectangle ( (0,0), (10,40) )\r\n
+\r\n  self.ball    = self.Create_Circle ( 10 )\r\n  self.ball.x  = 50\r\n  self.ball.y  = 50\r\n  self.ball.vx = 10\r\n\r\n# simulation that runs continuously\r\nball = self.ball\r\ndt   = 0.1\r\n\r\nball.x   = ball.x + ball.vx * dt\r\nball.vx *= 0.997\r\n\r\nball.y   = ball.y + ball.vy * dt\r\nif ( ball.y > 200 ) and ( ball.vy > 0 ) :\r\n  ball.vy = -0.8 * ball.vy\r\n  ball.y  = 200\r\nelse :\r\n  ball.vy = ball.vy + 9.8 * dt\r\nself.R.rot += 0.1\r\n'
+[Connections]
+0 = 'SN5/1,SN6/1'
+

@@ -1,0 +1,230 @@
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.py
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+-- 11: Imported : D:\Data_Python_25\support\gui_support.py
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+-- 11: Imported : D:\Data_Python_25\support\gui_support.py
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+-- 11: Imported : D:\Data_Python_25\support\gui_support.py
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+-- 11: Imported : D:\Data_Python_25\support\gui_support.py
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+-- 11: Imported : D:\Data_Python_25\support\gui_support.py
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc
+
+********************************************************************************
+2008-10-07  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\file_support.pyc
+-- 6: Imported : D:\Data_Python_25\support\gui_support.py
+-- 7: Imported : D:\Data_Python_25\support\picture_support.pyc
+-- 8: Imported : D:\Data_Python_25\support\menu_support.pyc
+-- 9: Imported : D:\Data_Python_25\support\doc_support.pyc
+-- 10: Imported : D:\Data_Python_25\support\tree_support.pyc

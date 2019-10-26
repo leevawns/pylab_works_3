@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>PyLab Works, Launch Center Main</title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffd4;
+}
+--></style>
+<link type="text/css" href="rvf.css" rel="stylesheet">
+
+<meta name="vscrollpos" content="49" />
+<meta name="spellcheck" content="132105" /></head>
+<body>
+
+<p class=rvps3><span class=rvts8>October 2008</span></p>
+<p><span class=rvts1>PyLab Works Launch Center</span></p>
+<p>With the Launch Center all major applications within the PyLab_Works frame can be started. At this moment not all parts are fully functional, but at least they will give you a fair idea of the functionality of PyLab_Works.</p>
+<p><span class=rvts10>Main: </span>this is the major page where all programs can be launched. At this moment the Library manager contains a better IDE than the IDE itself, that's because I use the Launch Center myself as a coding and testing tool.</p>
+<p><span class=rvts10>Demos: </span>This page contains full working demos of PyLab_Works applications and it will gradual grow in time. All demo-projects can be run in application mode and in design mode, in the latter you can modify the design ( the original demo can always be recovered)</p>
+<p><span class=rvts10>Test:</span> Don't dare to look at that page, it's mainly meant for core developers, but it might be also useful to track down installation problems on different Operating Systems.</p>
+<p><br></p>
+<p><br></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width=425 height=150 alt="" src="pw_launch_main_img2.png"></p>
+<p><br></p>
+<p><span class=rvts10>PyLab Works</span> : The main application, this should work pretty well, still it's strongly recommended to start with the demos.</p>
+<p><span class=rvts10>IDE</span> : A simple editor / IDE to edit and test general Python programs. This is a very premature version, just meant for my own to run tests. The Library manager already contains a more mature version of the IDE.</p>
+<p><span class=rvts10>Library Manager</span> : Manage PyLab_Works libraries, download / upgrade from the web. Work in progress, but might give you a good idea of the future version. As already said, this library manager contains a more mature version of the IDE.</p>
+<p><span class=rvts10>Translation Tool</span> : A tool to edit and upload translations of PyLab_Works libraries.</p>
+<p><br></p>
+<p><br></p>
+<p>Each of the above modules can be started with a number of <span class=rvts10>CommandLine Flags</span> (always lowercase), shown on the lower-left corner:</p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside;">
+<li>debug&nbsp;&nbsp;&nbsp;&nbsp; = print extra debug information </li>
+<li>debugfile = print and append to file ( &lt;application&gt;_debug.txt ) extra debug information </li>
+</ul>
+<p><br></p>
+<p><span class=rvts2>ToDo</span></p>
+<p>This is not the complete todo list, just the part that came up during the preparation of this first alfa release and couldn't be fixed on the flight..</p>
+<ul style="text-indent: 0px; margin-left: 24px; list-style-position: outside;">
+<li>dialogs, multi-language, AFAIK this must be done to create our own dialogs. The source code is concentrated in dialog_support. </li>
+<li>made a change in language_support, can't imagine it has ever worked ??? FINDING THE CORRECT LANGUAGE FILE </li>
+<li>IDE extend with autocreate "__init__.py" if new directory, "main" expansion </li>
+<li>language dialog with flags dimmed if language not available </li>
+<li>wxp-widgets don't work in Ubuntu </li>
+<li>IDE extend with OS-dependancies </li>
+<li>open (... "wb")&nbsp; gives warning / error in Ubuntu ??? </li>
+<li>list click in Ubuntu doesn't work very well </li>
+<li>** (python:10896): WARNING **: Can't create printer "PDF" because the id "PDF" is already used&nbsp; // (python:10896): GnomePrintCupsPlugin-WARNING **: The CUPS printer PDF could not be created //(python:10896): GnomePrintCupsPlugin-WARNING **: The data for the CUPS printer PDF could not be loaded. </li>
+<li>regular expression calculator </li>
+<li>print selected </li>
+<li></li>
+</ul>
+
+</body></html>

@@ -1,0 +1,4 @@
+v3print --> print
+basestring --> str
+has_key --> in
+wx.color --> wx.Colour

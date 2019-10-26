@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title></title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffd4;
+}
+--></style>
+<link type="text/css" href="rvf.css" rel="stylesheet">
+
+<meta name="vscrollpos" content="19" />
+<meta name="spellcheck" content="132105" /></head>
+<body>
+
+<p><span class=rvts1>Demo: PyPlot&nbsp;&nbsp; </span><span class=rvts8>(june 2009)</span></p>
+<p>&nbsp; </p>
+<p>This demo shows a generator and a realtime plot, based on pyplot. The "PyPlot Signal" Bricks extends the signals from the array (which are pure array data), with metadata like signalname, line color and linewidth. Also interesting to note that this is a slow plotting library (look at the framerate at the right bottom, which, set at 50 fps, should be no problem at all on this PC). And finally there's a bug in the program (mixing of 3 signals into 2 signals), but as PyPlot is not very useful, ...</p>
+<p>&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width=287 height=321 alt="" src="pw_demo_pyplot_img2.png"></p>
+<p>&nbsp; </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width=537 height=456 alt="" src="pw_demo_pyplot_img1.png"></p>
+
+</body></html>

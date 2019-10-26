@@ -1,0 +1,194 @@
+# ***********************************************************************
+# Standard libraries
+# ***********************************************************************
+from brick import *
+from PyLab_Works_Globals import _
+from PyLab_Works_Globals import *
+#from base_control        import *
+from import_controls import *
+
+# ***********************************************************************
+# If color is ignored, default BLACK is selected
+# ***********************************************************************
+Library_Color = wx.Colour ( 200, 80, 180 )
+
+# ***********************************************************************
+# Library_Icon,
+#   - can be an index in the image-list (not recommended)
+#   - or the filename of an image in this directory
+# ***********************************************************************
+Library_Icon = 'MSACCESS11.ico'
+
+
+
+# ***********************************************************************
+# ***********************************************************************
+class t_dBase ( tLWB_Brick ) :
+
+  Description = """
+Open DataBase Dialog,
+You can either select a filename of an SQLite database,
+or select a ODBC database from the registry list.
+"""
+
+  def After_Init (self):
+    self.Caption = 'dBase'
+
+    # Define the input pins
+    # <Pin-Name>, <Data_Type>, <Required>, <Description>
+    self.Inputs [1] = [ 'SQL', TIO_STRING, False, 'SQL query' ]
+    self.Inputs [2] = [ 'SQL', TIO_STRING, False, 'SQL query' ]
+    self.Inputs [3] = [ 'SQL', TIO_STRING, False, 'SQL query' ]
+
+    # Define the output pins
+    # <Pin-Name>, <Data_Type>, <Description>
+    self.Outputs [1] = [ 'Meta Data', TIO_TREE,
+      'Tables, Views, etc' ]
+    self.Outputs [2] = [ 'Data',      TIO_GRID,
+      'Data result form the SQL query' ]
+
+    # Create the GUI controls
+    CD = self.Create_Control ( t_C_RadioBox, 'dBase Type', 1 )
+    CD.NCol    = 2
+    CD.Range   = [ 'SQLITE', 'ODBC' ]
+
+    CD = self.Create_Control ( t_C_File_Open, 'dBase FileName', 'TO_pat.db' )
+    CD.Range   = FT_DBASE_FILES
+
+  # **********************************************************************
+  # this procedure is only called when inputs (or parameters) have changed
+  # **********************************************************************
+  def Generate_Output_Signals ( self, In, Out, Par, XIn, XOut, XPar ) :
+    # if RadioButtons changed
+    if XPar [4] :
+      # Don't know how to connect to ODBC databases under Linux
+      # Therefore we block it under Linux
+      if Platform_Windows :
+        self.GUI_Controls[1].ODBC = ( Par [4] == 1 )
+      else :
+        self.GUI_Controls[1].ODBC = False
+
+      # if DataBase changed
+    if XPar [5] :
+      from db_support import DataBase
+      print ( 'Open DataBase :', Par [5] )
+      self.DB = DataBase ( Par [5] )
+      
+      Out [1] = self.DB.MetaData #Get_MetaData ()
+      #Out [2] = None
+
+    #if XPar[1] or XPar[2] or XPar[3] :
+    #if XPar[1] or XPar[2] or XPar[3] :
+    # Test changes of SQL inputs
+    if self.DB and self.Output_Connected [2] :
+        for I in range ( 1, 4 ) :
+          if XIn[I] and In[I] :
+            if isinstance ( In [I], str ) :
+              SQL = In [I]
+            else :
+              # if selection take selection
+              if In [I][1] :
+                SQL = In [I][1]
+              # else take last lines
+              else :
+                SQL = In [I][2]
+            table, RowID = self.DB.Do_SQL ( SQL )
+            Out [2] = table
+            break
+# ***********************************************************************
+
+
+# ***********************************************************************
+# ***********************************************************************
+class t_DB_Tree ( tLWB_Brick ):
+
+  Description = """
+Displays dBase meta-data into a Tree.
+Selected table is outputed as SQL statement.
+Meta-data of selected table is send to output-2.
+Fields can be selected / de-selected or
+used for ordering or reversed ordering.
+"""
+
+  def After_Init (self):
+    self.Caption = 'dB Tree'
+    
+    # Define the input pins
+    # <Pin-Name>, <Data_Type>, <Required>, <Description>
+    self.Inputs [1] = [ 'Tree Elements', TIO_TREE, False,
+                        'Might be nested list, ....' ]
+
+    # Define the output pins
+    # <Pin-Name>, <Data_Type>, <Description>
+    self.Outputs [1] = ['Data',     TIO_STRING,  'Data of Tables, Views, etc']
+    self.Outputs [2] = ['MetaData', TIO_GRID,    'MetaData of Tables, Views, etc']
+
+    # Create the GUI controls
+    CD = self.Create_Control ( t_C_DB_Tree )
+    CD.Input_Channel = 1
+
+  # **********************************************************************
+  # this procedure is only called when inputs (or parameters) have changed
+  # **********************************************************************
+  def Generate_Output_Signals ( self, In, Out, Par, XIn, XOut, XPar ) :
+    if XPar [0] :
+      if XPar [1] :       # if SQL generated by selection changed
+        Out [1] = Par [1]
+      if XPar [2] :       # if selected table (metadata) changed
+        Out [2] = Par [2]
+# ***********************************************************************
+
+
+# ***********************************************************************
+# ***********************************************************************
+class t_DB_Grid ( tLWB_Brick ):
+
+  Description = """
+Grid for display 2 dimensional dBase data,
+like tables / views / table-meta-data.
+"""
+
+  def After_Init (self):
+    self.Caption = 'dB Grid'
+
+    # Define the input pins
+    # <Pin-Name>, <Data_Type>, <Required>, <Description>
+    self.Inputs [1] = [ 'Table Data', TIO_GRID, True ]
+
+    # Create the GUI controls
+    CD = self.Create_Control ( t_C_Grid )
+    CD.Input_Channel = 1
+# ***********************************************************************
+
+
+
+# ***********************************************************************
+# ***********************************************************************
+class t_Visual_SQL ( tLWB_Brick ):
+
+  Description = """
+Visual SQL Builder
+"""
+
+  def After_Init (self):
+    self.Caption = 'Visual_SQL'
+    #self.Diagnostic_Mode = True
+
+    # Define the input pins
+    self.Inputs [1] = [ _(0, 'Table Info') , TIO_TREE, REQUIRED ]
+
+    # we want this image-window to be centered
+    self.Center = True
+
+    # Create the GUI controls
+    CD = self.Create_Control ( t_C_Visual_SQL )
+    CD.Input_Channel = 1
+
+    #self.Generate_Output_Signals = \
+    #  self.Generate_Output_Signals_Debug
+
+  def Generate_Output_Signals ( self, In, Out, Par, XIn, XOut, XPar ) :
+    print (' VISUAL SQL BUILDER, to do !!!')
+# ***********************************************************************
+
+

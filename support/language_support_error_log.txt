@@ -1,0 +1,7 @@
+NL	language_support	ID not found	3	good morning
+NL	language_support	ID not found	4	good evening
+NL	language_support	ID not found	3	good morning
+NL	language_support	ID not found	4	good evening
+NL	language_support	ID not found	3	hello
+NL	language_support	ID not found	3	hello
+NL	language_support	ID not found	3	hello

@@ -1,0 +1,7 @@
+# After changing the code
+# press F9 to activate the code
+[empty]
+empty = 0
+[Scintilla Editor]
+LineNo = 0
+BM = '(dp0\n.'

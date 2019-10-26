@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title></title>
+<meta http-equiv="Content-Style-Type" content="text/css">
+<style type="text/css"><!--
+body {
+  margin: 5px 5px 5px 5px;
+  background-color: #ffffd4;
+}
+--></style>
+<link type="text/css" href="rvf.css" rel="stylesheet">
+
+<meta name="vscrollpos" content="0" />
+<meta name="spellcheck" content="132105" /></head>
+<body>
+
+<p><span class=rvts1>Demo: Signal_WorkBench&nbsp;&nbsp; </span><span class=rvts8>(june 2009)</span></p>
+<p>This is my own main workspace, so it's a real mess. Probably most of the things won't work, because the datafiles are not available. But go to the tree-item "Filter_Design"and press shift-F9, this will calculate a high pass filter and will make 5 plots of all kind of characteristics of 4 different filters, like shown below (sorry all graphs are put on top of each other). </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width=705 height=481 alt="" src="pw_demo_signal_workbench_img1.png"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width=400 height=300 alt="" src="pw_demo_signal_workbench_img2.png"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img width=400 height=300 alt="" src="pw_demo_signal_workbench_img3.png"></p>
+<p><br></p>
+<p><br></p>
+
+</body></html>

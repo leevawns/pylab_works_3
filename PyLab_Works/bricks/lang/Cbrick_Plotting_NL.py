@@ -1,0 +1,5 @@
+
+# NL language module
+
+LT = {
+}

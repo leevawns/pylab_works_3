@@ -1,0 +1,49 @@
+<map version="1.0.1">
+<!-- To view this file, download free mind mapping software FreeMind from http://freemind.sourceforge.net -->
+<node COLOR="#ff3333" CREATED="1571736355993" HGAP="3" ID="ID_678634908" MODIFIED="1571738056327" TEXT="Pylab_work.py" VSHIFT="31">
+<edge WIDTH="4"/>
+<font BOLD="true" NAME="SansSerif" SIZE="12"/>
+<node CREATED="1571736425610" HGAP="33" ID="ID_1340785556" MODIFIED="1571738049941" POSITION="left" TEXT="class MyCustomTreeCtrl ( Custom_TreeCtrl_Base )" VSHIFT="-38"/>
+<node CREATED="1571736476752" HGAP="55" ID="ID_582986918" MODIFIED="1571737866590" POSITION="left" TEXT="class MyDropTarget ( wx.DropTarget )" VSHIFT="-19"/>
+<node CREATED="1571736499496" HGAP="64" ID="ID_1373888047" MODIFIED="1571737886893" POSITION="left" TEXT="class Pylab_Work_MainForm ( wx.Frame )" VSHIFT="-20"/>
+<node CREATED="1571736637560" HGAP="57" ID="ID_217367414" MODIFIED="1571737865978" POSITION="left" TEXT="class Pylab_Works_App ( wx.App )" VSHIFT="11"/>
+<node CREATED="1571736516231" HGAP="53" ID="ID_547390628" MODIFIED="1571737866394" POSITION="right" TEXT="def Close_Project ()" VSHIFT="-39"/>
+<node CREATED="1571736539416" HGAP="36" ID="ID_1593959212" MODIFIED="1571737866970" POSITION="right" TEXT="def Load_Project ( filename = None, tree_item = None )" VSHIFT="-41"/>
+<node CREATED="1571736596313" HGAP="58" ID="ID_1244947639" MODIFIED="1571737866200" POSITION="right" TEXT="def output ( indent, line )" VSHIFT="-17"/>
+<node CREATED="1571736614081" HGAP="41" ID="ID_1912117804" MODIFIED="1571737866791" POSITION="right" TEXT="def ReCreate_Flow_Code ()" VSHIFT="3"/>
+<node CREATED="1571736667633" HGAP="54" ID="ID_1499817752" MODIFIED="1571738521077" POSITION="right" TEXT="if __name__ == &quot;__main__&quot;" VSHIFT="44">
+<edge WIDTH="2"/>
+<node COLOR="#0033cc" CREATED="1571738081984" HGAP="52" ID="ID_1746919252" MODIFIED="1571738431748" TEXT="Application.Design_Mode" VSHIFT="-25"/>
+<node COLOR="#0033cc" CREATED="1571738104607" HGAP="53" ID="ID_1348359174" MODIFIED="1571738438717" TEXT="Application.Config_File" VSHIFT="4"/>
+<node COLOR="#ff0033" CREATED="1571738474183" HGAP="56" ID="ID_616576114" MODIFIED="1571738579003" TEXT="PG.app = Pylab_Works_App( redirect = False )" VSHIFT="21"/>
+<node COLOR="#ff0033" CREATED="1571738543775" HGAP="57" ID="ID_1711893955" MODIFIED="1571738596446" TEXT="PG.Main_Form = Pylab_Work_MainForm ( )" VSHIFT="19">
+<node CREATED="1571738668071" HGAP="36" ID="ID_1786421737" MODIFIED="1571738750949" TEXT="PG.Main_Form.Load_Settings ( ini )" VSHIFT="-10"/>
+<node CREATED="1571738700960" HGAP="35" ID="ID_1978994592" MODIFIED="1571738748429" TEXT="tree_item = PG.Main_Form.Tree.Set_Selected_Item_From_String ( Active_Tree_Item )" VSHIFT="16"/>
+</node>
+<node CREATED="1571738730343" HGAP="60" ID="ID_878959650" MODIFIED="1571738785200" TEXT="Load_Project ( filename_project_current, tree_item )" VSHIFT="20"/>
+<node CREATED="1571738777231" HGAP="59" ID="ID_1908626612" MODIFIED="1571738783719" TEXT="filename_project_current = ini.Read ( &apos;Project File&apos;, &apos;&apos; )" VSHIFT="20"/>
+<node CREATED="1571738815599" HGAP="59" ID="ID_683417599" MODIFIED="1571738881201" VSHIFT="21">
+<richcontent TYPE="NODE"><html>
+  <head>
+    
+  </head>
+  <body>
+    <p>
+      <font color="#cc0000">PG</font>.app.MainLoop()
+    </p>
+  </body>
+</html>
+</richcontent>
+<arrowlink DESTINATION="ID_683417599" ENDARROW="Default" ENDINCLINATION="0;0;" ID="Arrow_ID_693119611" STARTARROW="None" STARTINCLINATION="0;0;"/>
+<linktarget COLOR="#b0b0b0" DESTINATION="ID_683417599" ENDARROW="Default" ENDINCLINATION="0;0;" ID="Arrow_ID_693119611" SOURCE="ID_683417599" STARTARROW="None" STARTINCLINATION="0;0;"/>
+</node>
+</node>
+<node CREATED="1571738143215" HGAP="49" ID="ID_1552592783" MODIFIED="1571738603597" POSITION="left" TEXT="from General_Globals import *" VSHIFT="17">
+<node COLOR="#0033cc" CREATED="1571738274031" FOLDED="true" HGAP="38" ID="ID_242933040" MODIFIED="1571738601253" TEXT="Application = Application_Object ()" VSHIFT="-9">
+<node CREATED="1571738309232" HGAP="57" ID="ID_1041614256" MODIFIED="1571738318333" TEXT="class Application_Object ( object ) " VSHIFT="4"/>
+</node>
+<node CREATED="1571738293480" ID="ID_436491852" MODIFIED="1571738293480" TEXT=""/>
+</node>
+<node COLOR="#ff0033" CREATED="1571738496806" HGAP="67" ID="ID_592524549" MODIFIED="1571738593490" POSITION="right" TEXT="import PyLab_Works_Globals as PG" VSHIFT="50"/>
+</node>
+</map>

@@ -1,0 +1,12 @@
+[empty]
+empty = 0
+[Scintilla Editor]
+LineNo = 0
+BM = '(dp0\n.'
+[" CMD-Shell"]
+CS_ = [False, False, False]
+CS_Help_Files = [u'http://www.python.org']
+CS_Help_Actual = u'http://www.python.org/'
+CSS_0_ = [False, False, False]
+CSS_0_Help_Files = [u'http://www.python.org']
+CSS_0_Help_Actual = u'http://www.python.org/'

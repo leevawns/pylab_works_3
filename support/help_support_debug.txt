@@ -1,0 +1,184 @@
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: posix / linux2
+Python: 2.5.2 (r252:60911, Jul 31 2008, 17:28:52) 
+[GCC 4.2.3 (Ubuntu 4.2.3-2ubuntu7)]
+Command Line: ['-debugfile']
+-- 1: Imported : /mnt/share/Data_Python_25/support/General_Globals.pyc
+-- 2: Imported : /mnt/share/Data_Python_25/support/dialog_support.pyc
+-- 3: Imported : /mnt/share/Data_Python_25/support/language_support.pyc
+-- 4: Imported : /mnt/share/Data_Python_25/support/inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+-- 6: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
+
+********************************************************************************
+2008-10-05  OS: nt / win32
+Python: 2.5.2 (r252:60911, Feb 21 2008, 13:11:45) [MSC v.1310 32 bit (Intel)]
+Command Line: ['-df', '-debugfile', '-debug']
+-- 1: Imported : D:\Data_Python_25\support\General_Globals.pyc
+-- 2: Imported : D:\Data_Python_25\support\dialog_support.pyc
+-- 3: Imported : D:\Data_Python_25\support\language_support.pyc
+-- 4: Imported : D:\Data_Python_25\support\inifile_support.pyc
+-- 5: Imported : D:\Data_Python_25\support\help_support.py
