@@ -136,7 +136,7 @@ Form_List = []
 #Variable for PROGRAM
 Main_Form = None # wx.frame
 app = None       # wx.app
-Final_App_Form = None # ?
+Final_App_Form = None # frame for application final
 
 Programs_Inifile = None
 

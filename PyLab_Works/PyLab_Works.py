@@ -558,13 +558,9 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
 
     # Bind events, for the dymanic menu-items, through the whole range
     self.Bind ( wx.EVT_MENU, self.OnMenu_Demos, id=self.ID_Demo0, id2=self.ID_Demo9  )
-
     self.Bind ( wx.EVT_MENU, self.OnMenu_Dir_Layout, id=self.ID_Dir_Layout )
     self.Bind ( wx.EVT_MENU, self.OnMenu_Test, id=self.ID_Test )
     # *************************************************************
-
-
-
     self.Bind ( wx.EVT_CLOSE, self.OnCloseWindow )
     self.Bind ( wx.EVT_SIZE, self.OnResize )
     #self.Bind(wx.EVT_IDLE,  self.OnIdle)
@@ -582,9 +578,6 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
     self.StatusBar.SetStatusText(' Edit',0)
     self.StatusBar.SetStatusText(' aap',2)
     # *************************************************************
-
-
-
     # *************************************************************
     # first splitter
     # *************************************************************
@@ -667,27 +660,8 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
         1, pre = [ _(0,'Set Active Project'),
                    _(0,'Insert New')] )
 
-    #self.Tree.Bind ( wx.EVT_CONTEXT_MENU, self.OnShowPopup )
-    #self.Tree.Bind ( wx.EVT_RIGHT_UP, self.OnShowPopup )
     self.Tree.Bind ( wx.EVT_TREE_ITEM_RIGHT_CLICK, self.OnShowPopup2 )
-    #self.Bind ( wx.EVT_TREE_ITEM_RIGHT_CLICK, self.OnShowPopup )
 
-
-    #self.Splitter.Bind ( wx.EVT_KEY_DOWN, self.OnKeyDown0 )
-    #self.Tree.Bind ( wx.EVT_KEY_DOWN, self.OnKeyDown1 )
-    #self.Shape_Container.Bind ( wx.EVT_KEY_DOWN, self.OnKeyDown2 )
-    #self.Bind ( wx.EVT_KEY_DOWN, self.OnKeyDown4 )
-
-    #from Scintilla_Templates import *  #EVT_SCINTILLA_TEMPLATE_INSERT
-    #self.Bind ( EVT_SCINTILLA_TEMPLATE_INSERT, self.OnTemplateInsert)
-
-
-    #frame = Scintilla_Templates_Form ( self, "PyLab Works Snippets", Pos = (20,20) )
-    #frame.Show(True)
-
-  #def OnTemplateInsert ( self, event ) :
-  #  print event.my_ID
-  #  print 'KLSOSP'
 
   def OnMenu_Test ( self, event ) :
     from system_support import run
@@ -933,8 +907,6 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
     # *****************************************************************
     # *****************************************************************
 
-
-
   def Resize_All (self, event):
     ID = event.GetId()
     ( w, h ) = self.Splitter.GetClientSize()
@@ -968,27 +940,6 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
       busy = wx.BusyInfo("One moment please, waiting for threads to die...")
       wx.Yield()
 # ***********************************************************************
-
-# ***********************************************************************
-# JALsPy, a JAL simulator
-# Simulates JAL code by translating it into Pyon code,
-# Simulates Hardware in Analog / Digital /Virtual mode,
-# or any combination of these.
-# Can import Eagle netlists
-#
-# License: freeware, under the terms of the BSD-license
-# Copyright (C) 2007 Stef Mientki
-# mailto:S.Mientki@ru.nl
-#
-# Problems / Bugs / Limitations / ToDo / To Improve / ..
-#  - a lot
-#  - exception catching
-#
-#
-# <Version: see JALsPy_globals    ,02-08-2007, Stef Mientki
-#    - orginal release
-# ***********************************************************************
-
 # ***********************************************************************
 # ***********************************************************************
 def Close_Project () :
@@ -1017,7 +968,6 @@ def Close_Project () :
   #    PG.Final_App_Form = Pylab_Works_App_Form (self)
   #  PG.Final_App_Form.Show()
 # ***********************************************************************
-
 # ***********************************************************************
 # Loads a new project and
 # if an old project was active save the changes first.
@@ -1086,7 +1036,6 @@ def Load_Project ( filename = None, tree_item = None ):
         #print 'Start'
         PG.State = PG.SS_Run
 # ***********************************************************************
-
 # ***********************************************************************
 # ***********************************************************************
 output_file   = None
@@ -1100,15 +1049,13 @@ def output ( indent, line ):
     output_file.write ( line )
   output_lines += line
 # ***********************************************************************
-
-# ***********************************************************************
 # ***********************************************************************
 def ReCreate_Flow_Code () :
   print ('********** Recreate FlowCode **********')
   Debug_From()
   if PG.Active_Project_Inifile:
+    print("ReCreate_Flow_Code 1")
     PG.Main_Form.Shape_Container.Save_Flow_Design ( PG.Active_Project_Inifile )
-
     #*******************************************************
     # Create a list of Bricks and
     # a list that contains all connected lines
@@ -1263,6 +1210,7 @@ def ReCreate_Flow_Code () :
     # END NEW
     #*******************************************************    
   if not ( PG.Final_App_Form ) :
+    print("ReCreate_Flow_Code 2")
     filename = path_split ( PG.Active_Project_Filename )[1]
     PG.Final_App_Form = my_App_Form ( PG.Main_Form,title = filename )
 
@@ -1289,17 +1237,13 @@ def ReCreate_Flow_Code () :
       else :
         # Create the nice library name
         line = device.__class__.__module__[6:].replace ( '_', ' ' )
-
         device.Control_Pane = PG.Final_App_Form.Add_Pane (device,device.shape.Caption + ' (' + line + ')',PG.Active_Project_Inifile )
-
     PG.Final_App_Form.Load_Settings ( PG.Active_Project_Inifile )
     PG.Final_App_Form.Show()
 
     PG.State_Do_Init = True
     PG.State_After_Init = PG.State
     PG.State = PG.SS_Stop
-# ***********************************************************************
-
 # ***********************************************************************
 # Main program,FOREVER loop
 # ***********************************************************************
@@ -1390,7 +1334,8 @@ class Pylab_Works_App ( wx.App ) :
         # wait at the start, needed for VPython
         if PG.Cycle_Nr == 1 :
           for i in range ( 5 ):
-            while self.My_EventLoop.Pending(): self.My_EventLoop.Dispatch()
+            while self.My_EventLoop.Pending(): 
+              self.My_EventLoop.Dispatch()
             self.My_EventLoop.ProcessIdle()
             time.sleep ( 0.05 )
 
@@ -1411,10 +1356,7 @@ class Pylab_Works_App ( wx.App ) :
         # Should be extended with Post_Code ( test runs)
         #Loop_Code = 'for Brick in PG.Bricks: Brick.Exec()\n'
         #print 'VM:\n',VM_Globals
-        Loop_Code = """
-for Brick in PG.Bricks:
-  Brick.Exec()
-"""
+        Loop_Code = """for Brick in PG.Bricks: Brick.Exec()"""
         ######################################
         PG.State_Do_Init = False
         PG.State = PG.State_After_Init
@@ -1441,7 +1383,7 @@ for Brick in PG.Bricks:
         except :
           pass
 
-    print ( 'Finish' )
+    print ( 'Finish in Pylab_Works_App' )
 
     # Store debug info
     PG.Debug_Table.Set_On ( )
@@ -1508,7 +1450,6 @@ for Brick in PG.Bricks:
 
     print(PG.Program_Name, 'has Finished')
 # End:class Pylab_Works_App
-
 # ***********************************************************************
 #                          MAIN PROGRAM
 # ***********************************************************************

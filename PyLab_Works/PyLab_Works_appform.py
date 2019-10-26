@@ -26,10 +26,6 @@ AC = 'blue'
 # which doesn't seems to interfere with AUI
 # ***********************************************************************
 class Control_Pane ( wx.Panel ):
-
-
-  # ***********************************************************************
-  # ***********************************************************************
   def __init__ ( self, parent, Brick, Ini, Title = 'Edit Values Below', Help = '' ) :
     #import _images
     wx.Panel.__init__ ( self, parent )
@@ -41,27 +37,20 @@ class Control_Pane ( wx.Panel ):
     # counter for none value. to force a parameter change
     self.None_Counter = 0
 
-    #self.panel = wx.Panel ( self , -1)
-    #self.panel.SetBackgroundColour = 'RED'
-
-    #panel = self
     self.y = 5
     #w, h = self.GetClientSize() #GetSize()
     w = self.GetClientSize()[0]
     w = w - 10
 
-
     ##self.GUI_Controls_Weg = []
     self.GUI_Controls = []
     self.Brick = Brick
-
 
     #for self.i, self.C  in enumerate ( Brick.Control_Defs ) :
     self.x = 0
     for self.i, Brick_CD  in enumerate ( self.Brick.Control_Defs ) :
       #self.x = 0  #10
       self.CD = Brick_CD
-
       # ********************************************************
       # Create the control
       # ********************************************************
@@ -86,23 +75,19 @@ class Control_Pane ( wx.Panel ):
       self.GUI_Controls.append ( Control )
 
       if 'Hint' in dir ( Brick_CD ) :
-        Control.SetToolTipString ( Brick_CD.Hint )
+        Control.SetToolTip ( Brick_CD.Hint )
       odd = self.i % 2
       if odd : ## and ( 'SetForegroundColour' in dir ( Control ) ) :
         Control.SetForegroundColour ( AC )
-
       """ Maybe these have to be added
       Control_Pars [ 'X-Pos' ]        = self.x
       Control_Pars [ 'Y-Pos' ]        = self.y
       Control_Pars [ 'Height' ]       = -1
       """
-
       # ********************************************************
       # Call Bricks completions
       # ********************************************************
       self.Brick.After_Control_Create ()
-
-
 
       # ********************************************************
       # Diagnostic Information
@@ -113,8 +98,7 @@ class Control_Pane ( wx.Panel ):
         ##line += '  Input_Index      = ' + str ( self.C.Input_Channel ) + '\n'
         line += '  Input_Index      = ' + str ( Brick_CD.Input_Channel ) + '\n'
         #Control_Pars [ 'Control_Index'] = self.i + '\n'
-        line += '  X / Y            = ' + str ( Control.X_Pos ) + ' / ' + \
-                                          str ( Control.Y_Pos ) + '\n'
+        line += '  X / Y            = ' + str ( Control.X_Pos ) + ' / ' + str ( Control.Y_Pos ) + '\n'
         line += '  Scalable         = ' + str ( Control.Scalable ) + '\n'
         line += '  Save_Settings    = ' + str ( Control.Save_Settings ) + '\n'
         line += '  Load_Settings    = ' + str ( Control.Load_Settings ) + '\n'
@@ -144,8 +128,7 @@ class Control_Pane ( wx.Panel ):
         line += '\n'
         line += _(0, 'Function Evaluation: \n' )
         item = 'Control_GetValue'
-        if Control_Pars.has_key ( item ) and \
-           Control_Pars [ item ] != None :
+        if item in Control_Pars and Control_Pars [ item ] != None :
           line += '  ' + item + ' = ' + str ( Control_Pars [ item ] () )
           line += '\n'
 
@@ -156,27 +139,6 @@ class Control_Pane ( wx.Panel ):
 
     # For an easy access of the Controls from within the Brick
     Brick.GUI_Controls = self.GUI_Controls
-    
-
-
-    """
-    # WHAT HAS WHAT
-    print '************'
-    print
-    print '--------- Pane --------'
-    for item in dir ( self ) :
-      print '  ', item
-    print '--------- Brick --------'
-    for item in dir ( self.Brick ) :
-      print '  ', item
-    print '--------- Brick.CD[0] --------'
-    for C in self.Brick.Control_Defs :
-      print '  ', C.Caption
-      for item in dir ( C  ) :
-        print '    ', item
-    print
-    print '************'
-    """
   # ********************************************************
   # LED temporary
   # ********************************************************
@@ -188,9 +150,6 @@ class Control_Pane ( wx.Panel ):
       self.StaticText.SetBackgroundColour ("red")
     self.StaticText.SetLabel (str(par))
     self.StaticText.SetSize ( (120,-1))
-
-
-
 
   # ********************************************************
   # If the parameters of a Brick have changed due to input signals,
@@ -217,25 +176,6 @@ class Control_Pane ( wx.Panel ):
   # all event controls that will always need
   # to notify a brick of it's changes
   # ********************************************************
-  """ Never OCCURRES
-  def OnEvent ( self, event ) :
-    print 'EVENT GUI_Controls'
-    ID = event.GetId()
-    #print '*******ONEVENT',ID
-    for C in self.GUI_Controls :
-      #print '*******ON',type(C)
-      if C['ID'] == ID :
-        break
-    #print '*******ONEVENT',ID ,C.GetValue']()
-    #print '*******ONECEEVT',type(C)
-    #if PG.NEWW :
-    C['Brick'].Par [ C['Control_Index'] + 1 ] = C['Control_GetValue']()
-    #else :
-    #  C['Brick'].Params [ C['Control_Index'] + 1 ] = C['Control_GetValue']()
-
-
-    event.Skip()
-  """
 
   # ********************************************************
   # Function that returns a Changing Value for controls
@@ -248,7 +188,6 @@ class Control_Pane ( wx.Panel ):
     return self.None_Counter
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 class my_App_Form ( wx.Frame, Menu_Event_Handler):
@@ -257,9 +196,7 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
                size=wx.DefaultSize,
                style = None ):
 
-    default_style = wx.DEFAULT_FRAME_STYLE | \
-                    wx.SUNKEN_BORDER | \
-                    wx.CLIP_CHILDREN
+    default_style = wx.DEFAULT_FRAME_STYLE | wx.SUNKEN_BORDER | wx.CLIP_CHILDREN
 
     ##if not ( PG.Standalone  ) :
     #if Application.Design_Mode :
@@ -281,7 +218,6 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
     # *************************************************************
     self.MenuBar = Class_Menus ( self )
     # *************************************************************
-
     self.StatusBar = self.CreateStatusBar()
     self.StatusBar.SetFieldsCount(5)
     self.StatusBar_Controls = []
@@ -293,9 +229,8 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
 
     # Set AUI manager flags
     self._mgr.SetFlags(self._mgr.GetFlags() ^ wx.aui.AUI_MGR_ALLOW_ACTIVE_PANE)
-    self._mgr.GetArtProvider().SetMetric (
-      wx.aui.AUI_DOCKART_GRADIENT_TYPE, wx.aui.AUI_GRADIENT_HORIZONTAL)
-    self._mgr.GetArtProvider().SetMetric ( wx.aui.AUI_DOCKART_SASH_SIZE, 3 )
+    self._mgr.GetArtProvider().SetMetric (wx.aui.AUI_DOCKART_GRADIENT_TYPE, wx.aui.AUI_GRADIENT_HORIZONTAL)
+    self._mgr.GetArtProvider().SetMetric ( wx.aui.AUI_DOCKART_SASH_SIZE, 10 )
     self._mgr.GetArtProvider().SetMetric ( wx.aui.AUI_DOCKART_CAPTION_SIZE, 10 )
 
 
@@ -405,35 +340,7 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
       for Brick in  PG.Main_Form.Shape_Container.Devices :
         if Brick.Name == name :
           #print dir (pane)  #.CaptionVisible ( False )
-          print ('FFGGHH',pane.HasCaption(),pane.IsMovable())
-          """
-['BestSize', 'Bottom', 'BottomDockable', 'Caption', 'CaptionVisible',
-'Center', 'CenterPane', 'Centre', 'CentrePane', 'CloseButton', 'DefaultPane',
-'DestroyOnClose', 'Direction', 'Dock', 'DockFixed', 'Dockable', 'Fixed',
-'Float', 'Floatable', 'FloatingPosition', 'FloatingSize', 'Gripper',
-'GripperTop', 'HasBorder', 'HasCaption', 'HasCloseButton', 'HasFlag',
-'HasGripper', 'HasGripperTop', 'HasMaximizeButton', 'HasMinimizeButton',
-'HasPinButton', 'Hide', 'IsBottomDockable', 'IsDestroyOnClose', 'IsDocked',
-'IsFixed', 'IsFloatable', 'IsFloating', 'IsLeftDockable', 'IsMaximized',
-'IsMovable', 'IsOk', 'IsResizable', 'IsRightDockable', 'IsShown', 'IsToolbar',
-'IsTopDockable', 'Layer', 'Left', 'LeftDockable', 'MaxSize', 'Maximize',
-'MaximizeButton', 'MinSize', 'MinimizeButton', 'Movable', 'Name',
-'PaneBorder', 'PinButton', 'Position', 'Resizable', 'Restore', 'Right',
-'RightDockable', 'Row', 'SafeSet', 'SetFlag', 'Show', 'ToolbarPane', 'Top',
-'TopDockable', 'Window', '__class__', '__del__', '__delattr__', '__dict__',
-'__doc__', '__getattribute__', '__hash__', '__init__', '__module__', '__new__',
-'__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__str__',
-'__swig_destroy__', '__weakref__', 'actionPane', 'best_size', 'buttonClose',
-'buttonCustom1', 'buttonCustom2', 'buttonCustom3', 'buttonMaximize',
-'buttonMinimize', 'buttonPin', 'buttons', 'caption', 'dock_direction',
-'dock_layer', 'dock_pos', 'dock_proportion', 'dock_row', 'floating_pos',
-'floating_size', 'frame', 'max_size', 'min_size', 'name', 'optionActive',
-'optionBottomDockable', 'optionCaption', 'optionDestroyOnClose',
-'optionDockFixed', 'optionFloatable', 'optionFloating', 'optionGripper',
-'optionGripperTop', 'optionHidden', 'optionLeftDockable', 'optionMaximized',
-'optionMovable', 'optionPaneBorder', 'optionResizable', 'optionRightDockable',
-'optionToolbar', 'optionTopDockable', 'rect', 'savedHiddenState', 'state',
- 'this', 'thisown', 'window']"""
+          print ('OnMenu_View_weg()',pane.HasCaption(),pane.IsMovable())
           if not ( Brick.Float ) :
             # some clumsy way to get rid of floating windows
             if pane.IsFloating ():
@@ -476,29 +383,7 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
   def Test ( self, event ) :
     if event.ButtonDown(wx.MOUSE_BTN_LEFT) :
       pass
-      #print 'move'
-      #print event.Dragging
-      """print dir(event)
-      ['AltDown', 'Button', 'ButtonDClick', 'ButtonDown', 'ButtonIsDown', 'ButtonUp',
-      'ClassName', 'Clone', 'CmdDown', 'ControlDown', 'Destroy', 'Dragging', 'Entering',
-      'EventObject', 'EventType', 'GetButton', 'GetClassName', 'GetEventObject',
-      'GetEventType', 'GetId', 'GetLinesPerAction', 'GetLogicalPosition', 'GetPosition',
-      'GetPositionTuple', 'GetSkipped', 'GetTimestamp', 'GetWheelDelta', 'GetWheelRotation',
-      'GetX', 'GetY', 'Id', 'IsButton', 'IsCommandEvent', 'IsPageScroll', 'IsSameAs',
-      'Leaving', 'LeftDClick', 'LeftDown', 'LeftIsDown', 'LeftUp', 'LinesPerAction',
-      'LogicalPosition', 'MetaDown', 'MiddleDClick', 'MiddleDown', 'MiddleIsDown',
-      'MiddleUp', 'Moving', 'Position', 'ResumePropagation', 'RightDClick', 'RightDown',
-      'RightIsDown', 'RightUp', 'SetEventObject', 'SetEventType', 'SetId', 'SetTimestamp',
-      'ShiftDown', 'ShouldPropagate', 'Skip', 'Skipped', 'StopPropagation', 'Timestamp',
-      'WheelDelta', 'WheelRotation', 'X', 'Y', '__class__', '__del__', '__delattr__',
-      '__dict__', '__doc__', '__getattribute__', '__hash__', '__init__', '__module__',
-       '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__str__',
-       '__swig_destroy__', '__weakref__', 'm_altDown', 'm_controlDown', 'm_leftDown',
-       'm_linesPerAction', 'm_metaDown', 'm_middleDown', 'm_rightDown', 'm_shiftDown',
-       'm_wheelDelta', 'm_wheelRotation', 'm_x', 'm_y', 'this', 'thisown']
-       """
-    
-    
+
   def Add_Pane ( self, Brick, Caption, Ini ) :
     if len ( Brick.Control_Defs ) == 0 :
       return
@@ -510,9 +395,9 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
                          Name ( Brick.Name ).
                          Caption ( Caption ).
                          PaneBorder ( False ).
-                         #CaptionVisible ( False ).
+                         #CaptionVisible ( True ).
                          Left().
-                         MinSize( ( 40, 40 ) ).
+                         MinSize( ( 100, 100 ) ).
                          CloseButton ( False ).
                          MaximizeButton ( False ).
                          CenterPane() )
@@ -526,7 +411,7 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
                            PaneBorder ( False ).
                            #CaptionVisible ( False ).
                            Left().
-                           MinSize( ( 40, 40 ) ).
+                           MinSize( ( 100, 100 ) ).
                            CloseButton ( False ).
                            MaximizeButton ( False ) )
     #if center:
