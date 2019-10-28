@@ -1,13 +1,10 @@
 #! /usr/bin/env python
 # order changed to get the right version of VPython (visual)
 import __init__
-import sys
 
 from General_Globals import *
 
-from numpy    import *
-#pd_Module ( 'numpy' )
-
+from numpy   import *
 
 # ***********************************************************************
 # ***********************************************************************
@@ -39,9 +36,8 @@ import scipy
 
 import OGLlike as ogl
 
-
 # ***********************************************************************
-# import all bricks libraries
+#                 Import all bricks libraries
 # ***********************************************************************
 print("[INFO : Import ALL bricks lib]")
 for brick in Get_PyLabWorks_Bricks_PyFiles () :
@@ -54,8 +50,8 @@ for brick in Get_PyLabWorks_Bricks_PyFiles () :
     print('Error importing', brick)
 # ***********************************************************************
 
-bw = 56
-bh = 22
+button_width             = 56
+button_height            = 22
 
 ID_Open                  = 301
 ID_Save                  = 302
@@ -66,14 +62,14 @@ ID_Page_Setup            = 306
 ID_Import_Eagle          = 307
 ID_Close                 = 308
 
-ID_View_3            = 401
+ID_View_3                = 401
 ID_View_NetList          = 402
-ID_Demo = 500
+ID_Demo                  = 500
 ID_Upload_Run_Setting    = 601
 ID_Help_Setting          = 602
 ID_Upload_Run            = 701
 
-#ID_Dir_Layout            = 801
+#ID_Dir_Layout           = 801
 
 ID_Help_JALsPy           = 901
 ID_Help_JAL              = 902
@@ -163,12 +159,11 @@ class MyCustomTreeCtrl ( Custom_TreeCtrl_Base ):
   # *************************************************************
   def Open_New_Project ( self ):
     Close_Project()
-
+    print("Open_New_Project")
     path, filename = path_split ( PG.Active_Project_Filename )
     Project_Name = os.path.splitext ( filename )[0]
     #print 'AAAAAA',PG.Active_Project_Filename
     #print 'BBBBBB',Project_Name
-
     # add a new project to the top of
     # the active projects section in the tree
     node, cookie = self.GetFirstChild ( self.root )
@@ -480,7 +475,6 @@ class MyCustomTreeCtrl ( Custom_TreeCtrl_Base ):
 # ***********************************************************************
 
 # ***********************************************************************
-# ***********************************************************************
 class MyDropTarget ( wx.DropTarget ) :
   def __init__ ( self, window ):
     wx.DropTarget.__init__ ( self )
@@ -491,8 +485,7 @@ class MyDropTarget ( wx.DropTarget ) :
 # ***********************************************************************
 
 # ***********************************************************************
-# ***********************************************************************
-class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
+class Pylab_Work_MainForm ( wx.Frame ) :
 
   def __init__(self, inifile = None):
     # Create the Main_Window
@@ -602,22 +595,22 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
     # *************************************************************
     # buttons for simulation control, start at halt
     # *************************************************************
-    bw = 50
-    bh = 22
-    self.B_Edit = wx.ToggleButton(Panel_Left, wx.ID_ANY, "Edit",   pos=(0*bw,0), size=(bw,bh))
+    self.B_Edit = wx.ToggleButton(Panel_Left, wx.ID_ANY, "Edit",   pos=(0*button_width,0), size=(button_width,button_height))
     PG.SS_Edit = self.B_Edit.GetId()
-    self.B_Run   = wx.ToggleButton(Panel_Left, wx.ID_ANY,   "Run-F9",  pos=(1*bw,0), size=(bw,bh))
+    self.B_Run   = wx.ToggleButton(Panel_Left, wx.ID_ANY,   "Run-F9",  pos=(1*button_width,0), size=(button_width,button_height))
     PG.SS_Run = self.B_Run.GetId()
-    self.B_Step  = wx.ToggleButton(Panel_Left, wx.ID_ANY,  "Step-F5", pos=(2*bw,0), size=(bw,bh))
+    self.B_Step  = wx.ToggleButton(Panel_Left, wx.ID_ANY,  "Step-F5", pos=(2*button_width,0), size=(button_width,button_height))
     PG.SS_Step = self.B_Step.GetId()
     PG.SS_Stop = PG.SS_Step + 20
-    self.B_HighLight  = wx.ToggleButton(Panel_Left, wx.ID_ANY,  "HighLight", pos=(3*bw,0), size=(bw,bh))
+    self.B_HighLight  = wx.ToggleButton(Panel_Left, wx.ID_ANY,  "HighLight", pos=(3*button_width,0), size=(button_width,button_height))
     PG.SS_HighLight = self.B_HighLight.GetId()
 
     Panel_Left.Bind ( wx.EVT_TOGGLEBUTTON, self.OnToggle_B, self.B_Edit )
     Panel_Left.Bind ( wx.EVT_TOGGLEBUTTON, self.OnToggle_B, self.B_Run )
     Panel_Left.Bind ( wx.EVT_TOGGLEBUTTON, self.OnToggle_B, self.B_Step )
     Panel_Left.Bind ( wx.EVT_TOGGLEBUTTON, self.OnToggle_HighLight, self.B_HighLight )
+
+
 
     # Accelerators, these tools are not visisble
     # but we need them for the accelerator shortcut
@@ -940,7 +933,7 @@ class Pylab_Work_MainForm ( wx.Frame ) : #, Menu_Event_Handler):
       busy = wx.BusyInfo("One moment please, waiting for threads to die...")
       wx.Yield()
 # ***********************************************************************
-# ***********************************************************************
+
 # ***********************************************************************
 def Close_Project () :
   #print 'Close'
@@ -964,10 +957,6 @@ def Close_Project () :
     PG.Main_Form.Tree.SetItemBold ( PG.Active_Tree_Project, False )
     PG.Main_Form.Tree.SetItemTextColour ( PG.Active_Tree_Project, wx.BLACK )
     #PG.Active_Tree_Project = None
-
-  #    PG.Final_App_Form = Pylab_Works_App_Form (self)
-  #  PG.Final_App_Form.Show()
-# ***********************************************************************
 # ***********************************************************************
 # Loads a new project and
 # if an old project was active save the changes first.
@@ -979,14 +968,11 @@ def Load_Project ( filename = None, tree_item = None ):
   #PG.Main_Form.Update_Buttons ()
   PG.State_Do_Init = True
   PG.State_After_Init = PG.State
-
-
   #print ' LOAD_PROJECT1',filename
   Close_Project ()
   PG.Active_Tree_Project = None
-
-  if not ( filename ) : return
-
+  if not ( filename ) : 
+    return
   fp, fn = path_split (filename)
   #print fp,'$',fn
   if fp == '' :
@@ -1036,7 +1022,7 @@ def Load_Project ( filename = None, tree_item = None ):
         #print 'Start'
         PG.State = PG.SS_Run
 # ***********************************************************************
-# ***********************************************************************
+
 # ***********************************************************************
 output_file   = None
 output_lines  = ''
@@ -1049,6 +1035,7 @@ def output ( indent, line ):
     output_file.write ( line )
   output_lines += line
 # ***********************************************************************
+
 # ***********************************************************************
 def ReCreate_Flow_Code () :
   print ('********** Recreate FlowCode **********')
@@ -1245,7 +1232,7 @@ def ReCreate_Flow_Code () :
     PG.State_After_Init = PG.State
     PG.State = PG.SS_Stop
 # ***********************************************************************
-# Main program,FOREVER loop
+
 # ***********************************************************************
 class Pylab_Works_App ( wx.App ) :
 
@@ -1449,7 +1436,7 @@ class Pylab_Works_App ( wx.App ) :
     wx.EventLoop.SetActive(old)
 
     print(PG.Program_Name, 'has Finished')
-# End:class Pylab_Works_App
+#                    End:class Pylab_Works_App
 # ***********************************************************************
 #                          MAIN PROGRAM
 # ***********************************************************************
@@ -1521,6 +1508,6 @@ if __name__ == "__main__":
     print(format_exception ( globals ))
 
 # ***********************************************************************
-#                          End Main Program
+#                        End Main Program
 # ***********************************************************************
 
