@@ -28,20 +28,20 @@ class Fixed_Hint ( wx.MiniFrame ):
       # simple but sizable and stay on top
       style = wx.STAY_ON_TOP | wx.DEFAULT_FRAME_STYLE )
 
-    Text = wx.StaticText (self, -1, text )
-    Text.SetBackgroundColour ( wx.Colour( 0xD3FBFB ) )
+    self.Text = wx.StaticText (self, -1, text )
+    self.Text.SetBackgroundColour ( wx.Colour( 0xD3FBFB ) )
 
     Sizer = wx.BoxSizer ( wx.VERTICAL )
-    Sizer.Add ( Text, 1, wx.EXPAND )
+    Sizer.Add ( self.Text, 1, wx.EXPAND )
     self.SetSizer ( Sizer )
 
-    Text.Bind ( wx.EVT_LEFT_DOWN,     self.OnLeftDown )
+    self.Text.Bind ( wx.EVT_LEFT_DOWN,     self.OnLeftDown )
     self.Bind ( wx.EVT_LEFT_DOWN,     self.OnLeftDown )
     self.Bind ( wx.EVT_LEFT_UP,       self.OnLeftUp )
     self.Bind ( wx.EVT_MOTION,        self.OnMouseMove )
-    Text.Bind ( wx.EVT_MIDDLE_UP,     self.OnExit )
+    self.Text.Bind ( wx.EVT_MIDDLE_UP,     self.OnExit )
 
-    Text.SetToolTip ( "Middle-click to close the window" )
+    self.Text.SetToolTip ( "Middle-click to close the window" )
 
     self.delta = ( 0, 0 )
 

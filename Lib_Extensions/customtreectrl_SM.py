@@ -511,7 +511,7 @@ def DrawTreeItemButton(win, dc, rect, flags):
 
 class DragImage(wx.DragImage):
     """
-    This class handles the creation of a custom image in case of item drag
+    This class handles the creation of a cusCustom_TreeCtrl_Basetom image in case of item drag
     and drop.
     """
 

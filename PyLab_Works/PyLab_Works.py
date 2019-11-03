@@ -11,7 +11,7 @@ from numpy   import *
 from copy import *
 import wx
 import wx.adv
-import customtreectrl_SM as CT
+#import customtreectrl_SM as CT #use in tree_support
 import time
 
 import os,sys
@@ -134,13 +134,6 @@ class MyCustomTreeCtrl ( Custom_TreeCtrl_Base ):
             Parent = Parent.GetParent ()
           if self.GetItemText ( Parent ) == PG.Active_Project_Filename_Only :
             PG.Main_Form.Shape_Container.Select_by_Name ( PyData[3] )
-
-  """
-  def OnMouseMoving ( self, event ) :
-    pass
-    event.Skip()
-    #print 'moving'
-  """
 
   # *************************************************************
   # *************************************************************
@@ -295,16 +288,16 @@ class MyCustomTreeCtrl ( Custom_TreeCtrl_Base ):
           print('ERROR')
         line = line.strip()
         print("[INFO] : Creat fixed hint 1")
-        self.frame_hint.Close()
-        self.frame_hint = Fixed_Hint( line, lib + ', ' + self.GetItemText ( item ) )
+        self.frame_hint.Text.SetLabel(line)
+        self.frame_hint.SetTitle(lib + ', ' + self.GetItemText ( item ))
 
       else :  # complete library overview
         if self.GetItemText ( item ) != 'Libraries' :
           MainNode = self.Get_Parent_At_Level ( item, 2)
           line = self.Find_All_Descriptions ( self.GetItemText ( MainNode ) )
           print("[INFO] : Creat fixed hint 2")
-          self.frame_hint.Close()
-          self.frame_hint = Fixed_Hint( line, self.GetItemText ( item ) )
+          self.frame_hint.Text.SetLabel(line)
+          self.frame_hint.SetTitle(self.GetItemText ( item ))
 
 
   # *************************************************************
@@ -548,7 +541,6 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     # Create the menu
     My_Menus = Class_Menus ( self, My_Menus = menus )
 
-
     # Bind events, for the dymanic menu-items, through the whole range
     self.Bind ( wx.EVT_MENU, self.OnMenu_Demos, id=self.ID_Demo0, id2=self.ID_Demo9  )
     self.Bind ( wx.EVT_MENU, self.OnMenu_Dir_Layout, id=self.ID_Dir_Layout )
@@ -577,18 +569,17 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     self.Splitter = wx.SplitterWindow ( self, 11, style = wx.SP_LIVE_UPDATE)
 
     self.Splitter_Left = wx.SplitterWindow ( self.Splitter, 11, style = wx.SP_LIVE_UPDATE)
-    #self.Tree = MyCustomTreeCtrl (self.Splitter, self,'TREE ROOT')
-
     self.Shape_Container = tPyLabWorks_ShapeCanvas (self.Splitter, self, pos=(0,0),size=(500,500))
 
     self.Splitter.SetMinimumPaneSize(20)
-    #self.Splitter.SplitVertically( self.Tree, self.Shape_Container, -400)
     self.Splitter.SplitVertically( self.Splitter_Left, self.Shape_Container, -400)
     # *************************************************************
 
     Panel_Left = wx.Window ( self.Splitter_Left, style = wx.BORDER_SUNKEN)
     Panel_Left.SetBackgroundColour( PG.General_BackGround_Color )
+
     self.Tree = MyCustomTreeCtrl (self.Splitter_Left, self, 'TREE ROOT')
+
     self.Splitter_Left.SetMinimumPaneSize(20)
     self.Splitter_Left.SplitHorizontally( Panel_Left ,self.Tree, 26)
 
@@ -597,9 +588,9 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     # *************************************************************
     self.B_Edit = wx.ToggleButton(Panel_Left, wx.ID_ANY, "Edit",   pos=(0*button_width,0), size=(button_width,button_height))
     PG.SS_Edit = self.B_Edit.GetId()
-    self.B_Run   = wx.ToggleButton(Panel_Left, wx.ID_ANY,   "Run-F9",  pos=(1*button_width,0), size=(button_width,button_height))
+    self.B_Run   = wx.ToggleButton(Panel_Left, wx.ID_ANY, "Run-F9",  pos=(1*button_width,0), size=(button_width,button_height))
     PG.SS_Run = self.B_Run.GetId()
-    self.B_Step  = wx.ToggleButton(Panel_Left, wx.ID_ANY,  "Step-F5", pos=(2*button_width,0), size=(button_width,button_height))
+    self.B_Step  = wx.ToggleButton(Panel_Left, wx.ID_ANY, "Step-F5", pos=(2*button_width,0), size=(button_width,button_height))
     PG.SS_Step = self.B_Step.GetId()
     PG.SS_Stop = PG.SS_Step + 20
     self.B_HighLight  = wx.ToggleButton(Panel_Left, wx.ID_ANY,  "HighLight", pos=(3*button_width,0), size=(button_width,button_height))
@@ -631,15 +622,8 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     if Application.Design_Mode :
       self.Show()
 
-    #self.t1 = wx.Timer(self.Shape_Container)
-    # the third parameter is essential to allow other timers
-    #self.Shape_Container.Bind(wx.EVT_TIMER, self.OnTimer, self.t1)
-    #self.t1.Start(4000)
-
     self.Bind(wx.EVT_SPLITTER_SASH_POS_CHANGED, self.OnSplitter)
     #self.Bind ( wx.EVT_SIZE, self.OnResize )
-
-    #from JALsPy_netlist_form  import EVT_JALSPY_NETLIST_WATCHES_CHANGED
 
     PG.State = PG.SS_Edit
     PG.Execution_HighLight = False #True
@@ -703,9 +687,12 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     #self.Activate_State_Button ( ID )
     #print 'BUTTON',ID
     if ID == PG.SS_Step:
-      if   PG.State == PG.SS_Stop: PG.State = PG.SS_Step
-      else:                        PG.State = PG.SS_Stop
-    else: PG.State = ID
+      if   PG.State == PG.SS_Stop: 
+        PG.State = PG.SS_Step
+      else:                        
+        PG.State = PG.SS_Stop
+    else: 
+      PG.State = ID
     #print ' piepje6',PG.State
     #JG.app.ProcessIdle()
     self.Update_Buttons ()
@@ -745,10 +732,6 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     print('piep4')
 
   def OnShowPopup ( self, event ) :
-    #v3print ( 'OnContextMenu' )
-    #print 'GGGGGGGGRRRRRRRRRRR',event.GetPoint(), self.Tree.GetItemText(event.GetItem())
-    #self.Tree_Hit_Pos = event.GetPoint ()
-
     pos = event.GetPosition ()
     pos = self.Tree.ScreenToClient ( pos )
     self.Tree_Hit_Pos = pos
@@ -756,14 +739,7 @@ class Pylab_Work_MainForm ( wx.Frame ) :
     self.Splitter.PopupMenu ( self.Popup_Menu_Tree )
 
   def OnShowPopup2 ( self, event ) :
-    #v3print ( 'OnRightMenuItem' )
-    #print 'GGGGGGGGRRRRRRRRRRR',event.GetPoint(), self.Tree.GetItemText(event.GetItem())
     self.Tree_Hit_Pos = event.GetPoint ()
-
-    #pos = event.GetPosition ()
-    #pos = self.Tree.ScreenToClient ( pos )
-    #self.Tree_Hit_Pos = pos
-    #v3print ( 'RM-pos', pos )
     self.Splitter.PopupMenu ( self.Popup_Menu_Tree )
 
   def OnPopupItemSelected ( self, event ) :
@@ -815,9 +791,7 @@ class Pylab_Work_MainForm ( wx.Frame ) :
 
   def Load_Settings ( self, ini ):
     if ( 'Load_Save' in Debug_What ) :
-      Debug_Dump_Trace (
-        'Pylab_Work_MainForm, Load_Settings :',
-        '\ninifile =', ini )
+      Debug_Dump_Trace ('Pylab_Work_MainForm, Load_Settings :','\ninifile =', ini )
 
     ini.Section = 'General'
     self.SetPosition( ini.Read ( 'Pos' , (0,0) ) )
@@ -1241,10 +1215,8 @@ class Pylab_Works_App ( wx.App ) :
       bmp = wx.Image ('../pictures/vippi_bricks.png', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
     else :
       bmp = wx.Image ('../pictures/vippi_bricks_nt.png', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-    wx.adv.SplashScreen( bmp,
-                      wx.adv.SPLASH_CENTRE_ON_SCREEN | wx.adv.SPLASH_TIMEOUT,
-                      1000, None,
-                      style = wx.NO_BORDER | wx.SIMPLE_BORDER | wx.STAY_ON_TOP )
+    wx.adv.SplashScreen( bmp,wx.adv.SPLASH_CENTRE_ON_SCREEN | wx.adv.SPLASH_TIMEOUT,1000, None,
+                        style = wx.NO_BORDER | wx.SIMPLE_BORDER | wx.STAY_ON_TOP )
     wx.Yield ()
     
     return True
@@ -1295,7 +1267,7 @@ class Pylab_Works_App ( wx.App ) :
               while ( time.time() - Loop_Time ) < 3 :
                 while self.My_EventLoop.Pending():
                   self.My_EventLoop.Dispatch()
-                self.ProcessIdle()
+                self.My_EventLoop.ProcessIdle()
                 time.sleep ( 0.02 )
 
               Brick.On      = True
@@ -1347,7 +1319,8 @@ class Pylab_Works_App ( wx.App ) :
         ######################################
         PG.State_Do_Init = False
         PG.State = PG.State_After_Init
-      while self.My_EventLoop.Pending(): self.My_EventLoop.Dispatch()
+      while self.My_EventLoop.Pending(): 
+        self.My_EventLoop.Dispatch()
       #self.ProcessIdle()
       self.My_EventLoop.ProcessIdle()
 
@@ -1444,11 +1417,6 @@ if __name__ == "__main__":
   try :
     #PG :import PyLab_Works_Globals as PG
     #Application : Application object <-- General_Globals.py
-
-    # If a config file is specified,
-    # we start in application mode
-    ##if Application.Config_File :
-    ##  PG.Standalone = True
     if not ( Application.Design_Mode ) :
       if not ( Application.Config_File ) :
         Application.Design_Mode = True

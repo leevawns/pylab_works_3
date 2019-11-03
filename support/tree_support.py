@@ -120,6 +120,7 @@ from   doc_support     import *
  |
 """
 # ***********************************************************************
+
 class Custom_TreeCtrl_Base ( CT.CustomTreeCtrl_Modified_SM ) :
 
   # *************************************************************
@@ -254,31 +255,6 @@ class Custom_TreeCtrl_Base ( CT.CustomTreeCtrl_Modified_SM ) :
   def On_Sel_Changed ( self, event ) :
     #print self.GetItemText ( event.GetItem())
     event.Skip()
-
-  """
-    # implemented as dummy procedures,
-    # so they can easily taken over by the children
-    #self.Bind ( CT.EVT_TREE_SEL_CHANGING,     self.OnChanging   )
-    #self.Bind ( CT.EVT_TREE_ITEM_ACTIVATED,   self.OnActivated  )
-    #self.Bind ( CT.EVT_TREE_STATE_IMAGE_CLICK,self.OnStateImage )
-    
-  # *************************************************************
-  # dummy procedures,
-  # so they can easily taken over by the children
-  # *************************************************************
-  def OnChanged ( self, event ) :
-    print ' piep'
-    event.Skip()
-    pass
-  def OnChanging ( self, event ) :
-    event.Skip()
-    pass
-  def OnActivated ( self, event ) :
-    pass
-  def OnStateImage ( self, event ) :
-    print ' SDTTSTTTTSTTTS'
-  """
-
 
   # *************************************************************
   # *************************************************************
@@ -454,44 +430,6 @@ class Custom_TreeCtrl_Base ( CT.CustomTreeCtrl_Modified_SM ) :
   # *************************************************************
   # *************************************************************
   def OnShowPopup ( self, event ) :
-    """
-EVT_TREE_ITEM_RIGHT_CLICK: dir ( event )
-['Allow', 'Checked', 'ClassName', 'ClientData', 'ClientObject', 'Clone',
-'Destroy', 'EventObject', 'EventType', 'ExtraLong', 'GetClassName',
-'GetClientData', 'GetClientObject', 'GetEventObject', 'GetEventType',
-'GetExtraLong', 'GetId', 'GetInt', 'GetItem', 'GetKeyCode', 'GetKeyEvent',
- 'GetLabel', 'GetNotifyEvent', 'GetOldItem', 'GetPoint', 'GetSelection',
- 'GetSkipped', 'GetString', 'GetTimestamp', 'GetToolTip', 'Id', 'Int',
- 'IsAllowed', 'IsChecked', 'IsCommandEvent', 'IsEditCancelled',
- 'IsSameAs', 'IsSelection', 'ResumePropagation', 'Selection',
- 'SetClientData', 'SetClientObject', 'SetEditCanceled', 'SetEventObject',
- 'SetEventType', 'SetExtraLong', 'SetId', 'SetInt', 'SetItem',
- 'SetKeyEvent', 'SetLabel', 'SetOldItem', 'SetPoint', 'SetString',
- 'SetTimestamp', 'SetToolTip', 'ShouldPropagate', 'Skip', 'Skipped',
- 'StopPropagation', 'String', 'Timestamp', 'Veto', '_GetSelf', '_SetSelf',
-  '__class__', '__del__', '__delattr__', '__dict__', '__doc__',
-  '__getattribute__', '__hash__', '__init__', '__module__', '__new__',
-  '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__str__',
-  '__swig_destroy__', '__weakref__', '_evtKey', '_item', '_label',
-  '_pointDrag', 'notify', 'this', 'thisown']
-
-    #print dir(event)
-    print self.GetItemText ( event.GetItem() )
-    pos = event.GetPosition ()
-    pos = self.ScreenToClient ( pos )
-    self.Tree_Hit_Pos = pos
-
-    item, hit = self.HitTest(self.Tree_Hit_Pos)
-    v3print ( 'PPPP', self.GetItemText ( item ) )
-    v3print ( self.GetItemText ( self.GetSelection () ))
-
-    v3print ( 'pUUU', event.GetPoint())
-    item, hit = self.HitTest( event.GetPoint())
-    v3print ( 'poooo', item, hit, self.GetItemText (item) )
-    
-    self.Right_Clicked_Item = event.GetItem ()
-    v3print ( 'Right Clicked on:', self.GetItemText ( self.Right_Clicked_Item ))
-    """
     print ('RRRRRRRRRRR',event.GetPoint())
     self.Tree_Hit_Pos = event.GetPoint ()
     self.Popup_Menu_Tree.SetEnabled ( 4 , self.Item_Copy )
@@ -820,11 +758,10 @@ EVT_TREE_ITEM_RIGHT_CLICK: dir ( event )
     #Tree.Expand ( Root )
 
 # ***********************************************************************
-
-
 # ***********************************************************************
 # A simple form to test the control
 # ***********************************************************************
+
 class Simple_Test_Form ( wx.MiniFrame ):
   def __init__ ( self, ini = None ):
     # restore position and size
@@ -911,8 +848,8 @@ class Simple_Test_Form ( wx.MiniFrame ):
   def OnCloseWindow ( self, event ) :
     self.Tree.Tree_2_IniFile ( self.ini.filename )
     event.Skip ()
-# ***********************************************************************
 
+# ***********************************************************************
 
 # ***********************************************************************
 # demo program
