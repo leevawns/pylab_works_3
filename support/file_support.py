@@ -88,9 +88,6 @@ _Version_Text = [
 ]
 # ***********************************************************************
 
-
-
-
 import os
 import sys
 import fnmatch
@@ -98,30 +95,12 @@ import glob
 
 #from dialog_support import AskYesNo
 
-"""
-THIS DOESN'T WORK :
-a = D:\data_to_test\JALsPy
-b = \JAL\demo_test_eeprom.jal
-c = join (a, b)
-"""
-
-
 # ***********************************************************************
 # ***********************************************************************
 def Change_FileExt ( filename, new_ext ) :
   if new_ext.find ( '.' ) < 0 :
     new_ext = '.' + new_ext
   return os.path.splitext ( filename )[0] + new_ext
-# ***********************************************************************
-
-
-# ***********************************************************************
-# returns the relative path (of a complete filename)
-# doesn't work well !!
-# ***********************************************************************
-#def Get_Relative_FileName ( filename ):
-#  common_path = os.path.commonprefix ( [ filename, os.getcwd() ] )
-#  return filename [ len ( common_path ) :]
 # ***********************************************************************
 
 class test_class ( object ):
@@ -146,12 +125,10 @@ def Get_Absolute_Path_REMOVED_FOR_THE_MOMENT ( Relative_Path ) :
   return os.path.normpath ( Path )
 # ***********************************************************************
 
-
-
 # ***********************************************************************
 # R.Barran 30/08/2004
 # ***********************************************************************
-def Get_Relative_Path ( target, base=os.getcwd()):  #os.curdir ) :
+def Get_Relative_Path ( target, base=os.getcwd()):
   """
   Return a relative path to the target from either the current dir or an optional base dir.
   Base can be a directory specified either as absolute or relative to current dir.
@@ -160,14 +137,13 @@ def Get_Relative_Path ( target, base=os.getcwd()):  #os.curdir ) :
   if not ( target ) :
     return ''
 
-  #if not os.path.exists(target):
-  #  raise OSError, 'Target does not exist: '+ target
-
   if not os.path.isdir(base):
       raise OSError('Base is not a directory or does not exist: '+base)
 
   base_list = (os.path.abspath(base)).split(os.sep)
+  print("base_list",base_list)
   target_list = (os.path.abspath(target)).split(os.sep)
+  print("target_list",target_list)
 
   # On the windows platform the target may be on a completely different drive from the base.
   if os.name in ['nt','dos','os2'] and (base_list[0].upper() != target_list[0].upper() ):
@@ -196,7 +172,6 @@ def Get_Relative_Path ( target, base=os.getcwd()):  #os.curdir ) :
     return ''
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 def Get_Rel_Path ( target ) :
@@ -207,7 +182,6 @@ def Get_Rel_Path ( target ) :
   return Get_Relative_Path ( target, Application.Dir )
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 def Get_Abs_Path ( target ) :
@@ -217,13 +191,11 @@ def Get_Abs_Path ( target ) :
   return os.path.join ( Application.Dir, target )
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 def Main_Module_Filename () :
   return sys.argv[0]
 # ***********************************************************************
-
 
 # ***********************************************************************
 # ***********************************************************************
@@ -233,7 +205,6 @@ def File_Exists (filename):
   else :
     return None
 # ***********************************************************************
-
 
 # ***********************************************************************
 # ***********************************************************************
@@ -279,14 +250,12 @@ On other OS, it just returns the unmodified string
   return FileName
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 def File_Delete ( filename ):
   if File_Exists ( filename ) :
     os.remove ( filename )
 # ***********************************************************************
-
 
 # ***********************************************************************
 # removes a tree (path), even if it contains files
@@ -297,23 +266,6 @@ def Tree_Delete ( path ) :
     import shutil
     shutil.rmtree ( path )
 # ***********************************************************************
-
-
-# ***********************************************************************
-# Forces a directory and
-# can create a default __init__.py file if not exists and init=True
-# ***********************************************************************
-def Force_Dir ( path, init = False ) :
-  if not( File_Exists ( path ) ) :
-    os.makedirs ( path )
-  if init :
-    initfile = os.path.join ( path, '__init__.py')
-    if not ( File_Exists ( initfile ) ) :
-      file = open ( initfile, 'w' )
-      file.write ( '# This is a Python package.' )
-      file.close ()
-# ***********************************************************************
-
 
 # ***********************************************************************
 def Force_Dir ( path, init = False ) :
@@ -331,9 +283,6 @@ def Force_Dir ( path, init = False ) :
       file.close ()
 # ***********************************************************************
 
-
-
-
 # ***********************************************************************
 # Searches for all (Python) files, starting at path
 # Returns a list of tuples,
@@ -342,8 +291,6 @@ def Force_Dir ( path, init = False ) :
 #   - the filename
 """
 """
-['../PyLab_Works/save temp', 'float_slider.py']
-['..PyLab_Works', 'setup.py']
 # ***********************************************************************
 def Find_Files_1 ( path , Py_Files, mask = '*.py', RootOnly = False ) :
   if File_Exists ( path ) :
@@ -362,20 +309,12 @@ def Find_Files_1 ( path , Py_Files, mask = '*.py', RootOnly = False ) :
     Py_Files.sort()
 # ***********************************************************************
 
-
 # ***********************************************************************
 # Searches for all (Python files), starting at path
 # Returns a list of tuples,
 # whereas each tuple contains
 #   - the path
 #   - the filename
-"""
-"""
-['', 'control_matplot']
-['', 'control_ogl']
-['/lang', 'PyLab_Works_search_bricks_NL']
-['/lang', '__init__']
-['/pylab_works_programs/Signal_WorkBench', 'Akto_Raw']
 # ***********************************************************************
 def Find_Files ( dir, mask = '*.py', RootOnly = False  ) :
   Py_Files = []
@@ -425,7 +364,6 @@ def Find_Files_Ext ( dir, mask = '*.py', RootOnly = False  ) :
   return Py_Files
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 def Get_Abs_Filename_Case ( Filename, RootOnly = True ) :
@@ -471,20 +409,11 @@ def Get_Abs_Filename_Case ( Filename, RootOnly = True ) :
     return
 # ***********************************************************************
 
-
 # ***********************************************************************
 # ***********************************************************************
 if __name__ == "__main__":
   
-  Test_Defs ( 5 )
-  
-  #filnam = 'D:/data_to_test/JALsPy/JAL/test33.jal'
-  #print os.getcwd()
-  #print path_split ( filnam )
-  #WINDOWS ONLY !! print os.path.splitunc ( filnam )
-  #print os.path.basename ( filnam )
-  #os.chdir()
-  #print os.path.commonprefix ([filnam,os.getcwd()])
+  Test_Defs ( 3 )
   
   # test of paths join / normalize
   if Test ( 1 ) :
@@ -542,6 +471,8 @@ if __name__ == "__main__":
     print(Get_Relative_Path ( '../pictures/pict.png', Application.Dir ))
     print(Get_Relative_Path ( 'D:/Data_Python_25/pictures/pict.png', Application.Dir ))
     print(Get_Relative_Path ( 'P:/portable/aap.txt', Application.Dir ))
+    print(Get_Relative_Path ( 'P:/portable/aap.txt', "lang" ))
+    print(Application.Dir)
 
     aap = Get_Relative_Path ( 'D:/Data_Python_25/pictures/pict.png', Application.Dir )
     aap = Get_Relative_Path ( aap )

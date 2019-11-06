@@ -300,8 +300,6 @@ class _My_IEHtmlWindow_Ext ( wx.Panel ) :
 # but the input is sent to the default external browser
 #    IEHtmlWindow_Ext = _My_IEHtmlWindow_Ext
 # ***********************************************************************
-print ('*****  WARNING  *****')
-print ('       wx.lib.iewin.IEHtmlWindow is only supported under MS-Windows')
 
 # ********************************************
 # always import iewin (also on non Windows OS),

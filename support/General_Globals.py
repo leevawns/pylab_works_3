@@ -17,7 +17,8 @@ import os, sys
 import platform
 import time
 
-#check platform
+from path_support import *
+#check platform windows: true or false
 Platform_Windows = sys.platform == "win32"
 
 # ***********************************************************************
@@ -26,58 +27,6 @@ Platform_Windows = sys.platform == "win32"
 wxGUI_Delay = 100
 if not ( Platform_Windows ) :
   wxGUI_Delay = 500
-# ***********************************************************************
-
-# ***********************************************************************
-# ***********************************************************************
-def Module_Absolute_Path ( *args ) :
-  """
-  Calculate an absolute filename or path,
-  from arguments relative to the module.
-  Example:
-    My_File = Module_Absolute_Path ( '..', 'sounds', 'T53.txt' )
-  will generate, the normalized form of :
-    <modules path> / .. / sounds / T53.txt
-  """
-  # find from which file this function is called
-  My_Path = sys._getframe(1).f_code.co_filename
-  My_Path = os.path.split ( My_Path ) [0]
-  My_File = os.path.join ( My_Path, *args )
-  My_File = os.path.normpath ( My_File )
-  return My_File
-# ***********************************************************************
-
-# ***********************************************************************
-# Functions that give problems accross OSs
-# Always use these functions instead of the orginals !!
-# ***********************************************************************
-def path_split ( filename ) :
-  # under Ubuntu a filename with both
-  # forward and backward slashes seems to give trouble
-  # already in os.path.split
-  if platform.system() == "Linux":
-    filename = filename.replace ( '\\','/')
-
-  return os.path.split ( filename )
-# ***********************************************************************
-
-# ***********************************************************************
-# ***********************************************************************
-def Joined_Paths ( *args ) :
-  """
-  Joins (if more than 1 argument) strings to one path.
-  Normalizes the path.
-  Changes the path to all forward slashes.
-  Each subpath string is allowed to be terminated with a (back-) slash.
-  """
-  args = list ( args )
-  for i,arg in enumerate ( args ) :
-    args [i] = args[i].replace ( '\\', '/' )
-
-  result = os.path.join ( *args )
-  result = os.path.normpath ( result )
-  result = result.replace ( '\\', '/' )
-  return result
 # ***********************************************************************
 
 # ***********************************************************************
@@ -134,6 +83,7 @@ def Debug_Dump ( *args ) :
 # ***********************************************************************
 # ***********************************************************************
 def Debug_Dump_Trace ( *args ) :
+  print("\n[Debug_Dump_Trace]")
   Debug_Dump ( *args )
   Debug_From ( 3 )
 # ***********************************************************************
@@ -141,6 +91,7 @@ def Debug_Dump_Trace ( *args ) :
 # ***********************************************************************
 # ***********************************************************************
 def Debug_From ( Level = 2 ) :
+  print("[ Debug_From ]")
   """
   Display information about the CALLER
   """
@@ -213,10 +164,16 @@ class Application_Object ( object ) :
     #print("Dir : ", self.Dir)
     self.FileName = path_split ( self.Application ) [1]
     self.FileName_Only, ext = os.path.splitext ( self.FileName )
-    #print("File Name : ",self.FileName_Only)
-    #print("ext",ext)
+    self.Config_File = None
 
     # Set some global debug vars
+    # _pd : flag debug: true or false
+    # _pd_nr : debug number, int
+    # _pd_pd_pre : '--' signal debug,string
+    # _pd_FileName : path debug file : string, .../FileName_debug.txt
+    # _pd_flags : sys.argv
+    # _pd_file : flag debugfile, true or false
+    # _pd_testall : flag debug all, true or false
     global _pd, _pd_nr, _pd_pd_pre, _pd_FileName, _pd_flags, _pd_file, _pd_testall
     _pd_nr = 0
     print('********************** ALARM ***********************')
@@ -247,8 +204,6 @@ class Application_Object ( object ) :
       if arg[0] != '-' :
         self.Config_File = arg
         break
-    else :
-      self.Config_File = None
 
     self.Debug_Mode      = _pd
     self.Demo_Mode       = '-demo'       in sys.argv [ 1 : ]
@@ -269,7 +224,6 @@ class Application_Object ( object ) :
 Application = Application_Object ()
 # ***********************************************************************
 Application._VPython_Version = 5
-# ***********************************************************************
 # ***********************************************************************
 # ***********************************************************************
 _GG_Test_Defs = []
@@ -299,16 +253,10 @@ def Test_Time () :
   """
   print ( '==> Elapsed Time [s] =', int ( time.time() - _GG_Start_Time ) )
 # ***********************************************************************
-
-# ***********************************************************************
-# ***********************************************************************
 def _pd_pre () :
   global _pd_nr
   _pd_nr += 1
   return _pd_pd_pre + str ( _pd_nr ) + ': '
-# ***********************************************************************
-
-# ***********************************************************************
 # ***********************************************************************
 def pd ( line_user )  :
   line_user = _pd_pre() + line_user
@@ -342,9 +290,6 @@ def pd ( line_user )  :
         print Path
     """
 # ***********************************************************************
-
-# ***********************************************************************
-# ***********************************************************************
 def pd_Module ( line = None ):
   """
   This procedure will print the imported module, if debug mode is on.
@@ -369,21 +314,17 @@ def pd_Module ( line = None ):
 # ***********************************************************************
 
 # ***********************************************************************
-# ***********************************************************************
-
-# Get the General Inifile
-from inifile_support import inifile
-# ***********************************************************************
 # At this moment we may call other libraries of our own
 # so here we can extend our Application object
 # ***********************************************************************
-#Path, File = path_split ( __file__ )
+# Get the General Inifile
+from inifile_support import inifile
+
 Path = sys._getframe().f_code.co_filename
 Path = os.path.split ( Path ) [0]
 
 filnam = os.path.join ( Path, 'General_Global_Settings.cfg' )
 Application.General_Global_Settings = inifile ( filnam )
-#print(type(Application.General_Global_Settings))
 # ***********************************************************************
 
 # ***********************************************************************

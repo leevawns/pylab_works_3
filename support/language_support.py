@@ -41,7 +41,7 @@ import os
 import sys
 import wx
 
-from utilities import *
+from path_support import *
 from General_Globals import *
 
 #add vietnames language
@@ -76,7 +76,7 @@ def Set_Language ( New_Language,  First_Time = False ) :
     # Ignore gui_support
     if 'gui_support.py' in SourceFile :
       SourceFile = sys._getframe (2).f_code.co_filename
-    print('New Language =', New_Language, ' Set from :', os.path.normpath ( SourceFile ))
+    #print('New Language =', New_Language, ' Set from :', os.path.normpath ( SourceFile ))
     if not ( First_Time ):
       Title   = _(1, 'Change the language:' )
       Message = _(2, 'Language Setting has been changed,\n' +
@@ -209,7 +209,7 @@ def log ( ID, text, message ) :
 # Finalization, doesn't work reliable
 # ***********************************************************************
 def _Close_Log () :
-  print('CLOSE LANGUAGE LOG FILE')
+  #print('CLOSE LANGUAGE LOG FILE')
   _LT_Log.close ()
 # ***********************************************************************
 
@@ -258,6 +258,7 @@ if __name__ == '__main__':
   print(_LT_missing)
   print(_LT)
   print(_LT_Errors)
+  #print(Module_Absolute_Path("test","extender.tet"))
 # ***********************************************************************
 pd_Module ( __file__ )
 

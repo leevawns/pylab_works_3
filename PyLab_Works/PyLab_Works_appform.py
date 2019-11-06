@@ -2,7 +2,9 @@ import os
 import PyLab_Works_Globals as PG
 #from   PyLab_Works_Globals import *
 from   PyLab_Works_Globals import _
+
 from   base_control        import *
+
 from   import_controls     import *
 
 import wx
@@ -192,9 +194,7 @@ class Control_Pane ( wx.Panel ):
 # ***********************************************************************
 class my_App_Form ( wx.Frame, Menu_Event_Handler):
 
-  def __init__(self, parent, id=-1, title="", pos=wx.DefaultPosition,
-               size=wx.DefaultSize,
-               style = None ):
+  def __init__(self, parent, id=-1, title="", pos=wx.DefaultPosition, size=wx.DefaultSize, style = None ):
 
     default_style = wx.DEFAULT_FRAME_STYLE | wx.SUNKEN_BORDER | wx.CLIP_CHILDREN
 

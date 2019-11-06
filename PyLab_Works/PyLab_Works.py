@@ -4,16 +4,12 @@ import __init__
 
 from General_Globals import *
 
-from numpy   import *
-
 # ***********************************************************************
 # ***********************************************************************
 from copy import *
 import wx
 import wx.adv
-#import customtreectrl_SM as CT #use in tree_support
 import time
-
 import os,sys
 
 import PyLab_Works_Globals as PG
@@ -26,13 +22,14 @@ from   inifile_support import inifile
 from   tree_support    import *
 from   menu_support    import *
 from   PyLab_Works_shape_container import tPyLabWorks_ShapeCanvas
+
 from   PyLab_Works_appform import *
 from   PyLab_Works_search_bricks import *
 from   fixed_hint import Fixed_Hint
-
 from scipy.signal import *
 from scipy import *
 import scipy
+from numpy   import *
 
 import OGLlike as ogl
 
@@ -440,7 +437,7 @@ class MyCustomTreeCtrl ( Custom_TreeCtrl_Base ):
   # *****************************************************************
   # *****************************************************************
   def Set_Selected_Item_From_String ( self, line ) :
-    print("[INFO] : Set_Selected_Item_From_String function")
+    #print("[INFO] : Set_Selected_Item_From_String function")
     if not ( line ) :
       return None
 
@@ -770,9 +767,7 @@ class Pylab_Work_MainForm ( wx.Frame ) :
 
   def Save_Settings ( self, ini ):
     if ( 'Load_Save' in Debug_What ) :
-      Debug_Dump_Trace (
-        'Pylab_Work_MainForm, Save_Settings :',
-        '\ninifile =', ini )
+      Debug_Dump_Trace ('Pylab_Work_MainForm, Save_Settings :','\ninifile =', ini )
 
     ini.Section = 'General'
     ini.Write ( 'Pos', self.GetPosition() )
@@ -899,7 +894,7 @@ class Pylab_Work_MainForm ( wx.Frame ) :
         self.closed = True
         Close_Project ()
 
-      PG.App_Running = False
+      PG.App_Running = False # Exit app
       if PG.State in [ PG.SS_Step, PG.SS_Stop]:
         PG.State = PG.SS_Run
         #print ' piepje8',PG.State
@@ -938,11 +933,11 @@ def Close_Project () :
 # and everything is cleared
 # ***********************************************************************
 def Load_Project ( filename = None, tree_item = None ):
-  #PG.State = PG.SS_Edit
-  #PG.Main_Form.Update_Buttons ()
+
   PG.State_Do_Init = True
   PG.State_After_Init = PG.State
-  #print ' LOAD_PROJECT1',filename
+  print ('[LOAD_PROJECT] : ',filename)
+  #close project current
   Close_Project ()
   PG.Active_Tree_Project = None
   if not ( filename ) : 
@@ -957,14 +952,12 @@ def Load_Project ( filename = None, tree_item = None ):
   #print 'GGG',filename,fp,fn
   PG.Active_Project_Filename = filename
   PG.Active_Project_Filename_Only = os.path.splitext(fn)[0]
-  #v3print ( 'Active Project', PG.Active_Project_Filename_Only )
+  print ( '[Active Project] ', PG.Active_Project_Filename_Only )
 
   # add filename to the mainforms caption
   line = PG.Main_Form.GetLabel()
   line = line [ : line.rfind(')') + 1 ] + '  '
   PG.Main_Form.SetLabel ( line + filename )
-  ##PG.Main_Form.Base_Title = len ( line+filename )
-  ##print 'HHH',line,'$$$',filename
 
   PG.Main_Form.Shape_Container.Clear ()
   if filename:
@@ -980,7 +973,6 @@ def Load_Project ( filename = None, tree_item = None ):
     config_file = fne + '.cfg'
     ini = PG.Active_Project_Inifile = inifile ( config_file )
     if os.path.exists ( config_file ) :
-      #print 'Read Project Config File:', config_file
       PG.Main_Form.Shape_Container.Load_Flow_Design ( ini )
 
     # Final Application Form
@@ -993,7 +985,6 @@ def Load_Project ( filename = None, tree_item = None ):
       ini.Section = 'Application Window'
       ##if ini.Read ('Running') or PG.Standalone:
       if ini.Read ('Running') or not (Application.Design_Mode) :
-        #print 'Start'
         PG.State = PG.SS_Run
 # ***********************************************************************
 
@@ -1009,7 +1000,7 @@ def output ( indent, line ):
     output_file.write ( line )
   output_lines += line
 # ***********************************************************************
-
+# Run Code
 # ***********************************************************************
 def ReCreate_Flow_Code () :
   print ('********** Recreate FlowCode **********')
@@ -1083,9 +1074,7 @@ def ReCreate_Flow_Code () :
 
 
     global output_file, output_lines, output_bricks
-    #if PG.NEWW :
     #*******************************************************
-    # NEWWWWW
     # Generate the general code
     #*******************************************************
     output_file   = None
@@ -1211,6 +1200,7 @@ def ReCreate_Flow_Code () :
 class Pylab_Works_App ( wx.App ) :
 
   def OnInit(self):
+    #load splashscreen
     if Platform_Windows :
       bmp = wx.Image ('../pictures/vippi_bricks.png', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
     else :
@@ -1223,7 +1213,6 @@ class Pylab_Works_App ( wx.App ) :
 
   def MainLoop(self):
     # take over the event loop, but save the old one
-    #self.My_EventLoop = wx.EventLoop ()
     self.My_EventLoop = wx.GUIEventLoop()
     old = wx.EventLoop.GetActive ()
     wx.EventLoop.SetActive ( self.My_EventLoop )
@@ -1434,13 +1423,14 @@ if __name__ == "__main__":
     #*********************************
     # set configure file of program
     #*********************************
-    # define the programs configuration file
+    # Get file name current
     Path_current = sys._getframe().f_code.co_filename
     filename_current, ext = os.path.splitext ( Path_current )
 
     #Read Pylab_Works.cfg
-    #ini : object of .ini file, read from .cfg file
     ini = PG.Programs_Inifile = inifile ( filename_current + '.cfg' )
+
+    #get file name project current
     ini.Section = 'General'
     filename_project_current = ini.Read ( 'Project File', '' )
     filename_project_current = filename_project_current.replace ( '\\', '/' ) #linux

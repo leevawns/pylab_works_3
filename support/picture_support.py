@@ -770,7 +770,7 @@ def Get_Image_List ( size_width_height =  16 ) :
   #Debug_From ()
 
   if not ( __Image_List ) :
-    print ('********** Generating Image List', size_width_height, '*', size_width_height)
+    #print ('********** Generating Image List', size_width_height, '*', size_width_height)
     tsize = size_width_height, size_width_height
     __Image_List = wx.ImageList ( *tsize )
 

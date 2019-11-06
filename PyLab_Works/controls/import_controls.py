@@ -56,14 +56,14 @@ ini_filename = os.path.join ( my_dir, ini_filename )
 ini = inifile ( ini_filename )
 ini.Section = 'Controls'
 control_list = ini.Read_Dict ( 'Dict' )
-print(control_list)
+#print(control_list)
 
 Py_Files = Find_Files ( my_dir, 'control_*.py', RootOnly = True )
 for file in Py_Files :
   filename = os.path.join ( my_dir, file[1] + '.py' )
   last_modified = int ( os.path.getmtime ( filename ) )
 
-  print ( 'Generate Control Imports', file[1] )
+  #print ( 'Generate Control Imports', file[1] )
   if not ( file[1] in control_list ) or \
     ( control_list [ file[1] ] [0] != last_modified ) :
 

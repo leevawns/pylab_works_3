@@ -20,11 +20,9 @@ if not ( Found ) :
   print ('Can''t find "__init__root.py"')
   print ('The program will be aborted')
   sys.exit ()
-print(sys.path)
 # Add the path of __init__root to PythonPath
 if My_Path not in sys.path :
   sys.path.append ( My_Path )
-print(sys.path)
 #  Get the whole rest of the project, including myself
 import __init__root
 

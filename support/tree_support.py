@@ -156,8 +156,7 @@ class Custom_TreeCtrl_Base ( CT.CustomTreeCtrl_Modified_SM ) :
     # *************************************************************
     # create the tree and assign imagelist
     # *************************************************************
-    CT.CustomTreeCtrl_Modified_SM.__init__ ( self, parent, style = tree_style,
-                                 name = name )
+    CT.CustomTreeCtrl_Modified_SM.__init__ ( self, parent, style = tree_style,name = name )
     self.No_Image_List = No_Image_List
 
 
