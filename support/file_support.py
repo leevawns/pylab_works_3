@@ -413,7 +413,7 @@ def Get_Abs_Filename_Case ( Filename, RootOnly = True ) :
 # ***********************************************************************
 if __name__ == "__main__":
   
-  Test_Defs ( 3 )
+  Test_Defs ( 10 )
   
   # test of paths join / normalize
   if Test ( 1 ) :
@@ -561,11 +561,6 @@ if __name__ == "__main__":
     filename = '../PyLab_Works/pylab_works_programs/2D_Scene_Ball1/ball1_save.py'
     filename = Get_Abs_Filename_Case ( filename )
     print ( 'Found:', filename )
-
-    filename = '../pyLab_Works/pylab_works_programs/2D_Scene_Ball1/ball1_save.py'
-    filename = Get_Abs_Filename_Case ( filename )
-    print ( 'Found:', filename )
-
 
 # ***********************************************************************
 pd_Module ( __file__ )

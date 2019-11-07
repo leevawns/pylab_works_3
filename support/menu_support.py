@@ -1,6 +1,7 @@
 import __init__
 
 import wx
+import wx.adv
 import os
 import webbrowser
 
@@ -179,8 +180,44 @@ default_menus = [
                       ( '&Ask OnLine Assistance' ,'Ask_Assistance'   ),
                       ( 'Check For &New Version' ,'Check_New_Version'),
                       ( '&About'                 ,'About'            ) ]]]
+default_menus_pylab_works = [
+      ['&File',     [ ( '&New/Open\tCtrl+O', 'Open'    ),
+                      ( '&Save\tCtrl+S',     'Save'    ),
+                      ( 'Save &As ...',      'Save_As' ),
+                      ( '-' ),
+                      ( '&Print\tCtrl+P',    'Print'         ),
+                      ( 'Pr&int Preview',    'Print_Preview' ),
+                      ( 'Page Setup',        'Page_Setup'    ),
+                      ( '-' ),
+                      ( '&Export',           'Export' ),
+                      ( '-' ),
+                      ( '&Close',            'Close'  ) ]],
+      ['&Edit',     [ ( '&ToDo',             'ToDo'   ),
+                      ( '&Edit',             'Edit'   ) ]],
+      ['&Settings', [ ( '&ToDo',             'ToDo'   ),
+                      ( '&Test',             'Test'   ) ]],
+      ['&View',     [ ( '&Hor Layout',       'Dir_Layout'   ),
+                      ( '&View',             'View'         ) ]],
+      ['&Help',     [ ( 'PyLab_&Works',           'Prog_Help'   ),
+                      ( '&Python',                'Python_Help' ),
+                      ( '-' ),
+                      ( '&Check For New Version', 'Check_New_Version' ),
+                      ( 'Send &Bug Report',       'Send_Bug_Report' ),
+                      ( 'Ask &OnLine Assistance', 'Ask_Assistance' ),
+                      ( '&About',                 'About' ) ]]]
 
-
+ToolItems_pylab_works = [
+      ( 83, 'Disable Breakpoints'   ),
+      (                             ),
+      ( 91, 'Pauze  (F9)'           ),
+      ( 90, 'Run in Debugger  (F9)' ),
+      ( 92, 'Step  (F8)'            ),
+      ( 93, 'Step Into  (Ctrl-F8)'  ),
+      (                             ),
+      ( 22, 'Restart (Shift-F9)'    ),
+      (                             ),
+      ( 65, 'Run Extern  (Alt-F9)'  ),
+    ]
 # ***********************************************************************
 # Dummy Menu Event Handler
 # ***********************************************************************
@@ -433,7 +470,7 @@ class Class_Menus ( wx.MenuBar, Menu_Event_Handler ) :
 # TODO: more types than "Toggle"
 # ***********************************************************************
 class Create_ToolBar_Items ( object ) :
-  def __init__ ( self, ToolBar, ToolItems, On_Event, parent, size = 24 ) :
+  def __init__ ( self, ToolBar, ToolItems, On_Event, parent, size = 30 ) :
     self.ToolBar    = ToolBar
     self.ToolItems  = ToolItems
     self.User_Event = On_Event
@@ -442,7 +479,6 @@ class Create_ToolBar_Items ( object ) :
     tsize = ( size, size )
     self.IL = Get_Image_List ( size )
     ToolBar.SetToolBitmapSize ( tsize )
-
 
     # *******************************************************
     # determine the groups and their sizes
@@ -457,8 +493,6 @@ class Create_ToolBar_Items ( object ) :
         counter = 0
     if counter > 0 :
       self.groups.append ( counter )
-    #print groups
-
 
     # *******************************************************
     # add the toolbar items, select the first one
@@ -475,7 +509,7 @@ class Create_ToolBar_Items ( object ) :
         if self.groups [ group ] == 1 :
           ToolBar.AddCheckTool ( ID, item[1], bmp, shortHelp = item[1] )
         else :
-          ToolBar.AddLabelTool      ( ID, item[1], bmp, shortHelp = item[1] )
+          ToolBar.AddTool      ( ID, item[1], bmp, shortHelp = item[1] )
           ToolBar.EnableTool ( ID, First )
           First = False
         self.IDs.append ( ID )
@@ -595,7 +629,7 @@ class Simple_Test_Form ( My_Frame_Class ) :
           label_4  ,wx.StaticText  ,label = "Signal1b", pos = (10, 50)
     """
     #exec ( Create_wxGUI ( GUI ) )
-    self.wxGUI = Create_wxGUI ( GUI ) #, IniName = 'self.Ini_File' )
+    self.wxGUI = Create_wxGUI ( GUI )
 
     # Create the menu
     MenuBar = Class_Menus ( self )

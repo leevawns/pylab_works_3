@@ -3,7 +3,7 @@ from PyLab_Works_Globals import *
 from language_support import _
 #from base_control        import *
 from import_controls import *
-from utilities import *
+from path_support import *
 # ***********************************************************************
 
 

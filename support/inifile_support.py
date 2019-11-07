@@ -24,7 +24,7 @@ from configobj import ConfigObj
 import pickle
 from wx import Colour
 # ***********************************************************************
-from utilities import *
+from path_support import *
 # CASE OF NAMES !!!!!
 
 class inifile ( ConfigObj ):
@@ -33,9 +33,6 @@ class inifile ( ConfigObj ):
     # under Ubuntu a filename with both
     # forward and backward slashes seems to give trouble
     # already in path_split
-    filename = filename.replace ( '\\','/')
-
-    filepath, filename = path_split ( filename )
     """
     filepath, filename = path_split ( filename )
 

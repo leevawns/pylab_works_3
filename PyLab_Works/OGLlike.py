@@ -7,6 +7,12 @@
 # mailto: ...
 # Please let me know if it works or not under different conditions
 #
+# <Version: 3.0    , 06-11-2019,  le van lap
+# Test Conditions: *
+#    - python 3
+#    - wxpython 4, phoenix
+#    - ***
+#
 # <Version: 2.1    , 21-07-2008,  Stef Mientki
 # Test Conditions: 2
 #    - improved perpendicular connection lines (for hor only)
@@ -946,7 +952,6 @@ class ONode ( Node ):
 # ***********************************************************************
 
 
-
 # ***********************************************************************
 # Resize anchors, for all shapes, except 2D_scene
 # ***********************************************************************
@@ -1223,7 +1228,6 @@ class Connection_Line ( LineShape ) :
       #print 'HitLine',x,y,self._x,self._y
       LineShape.HitTest ( self, x, y )
         
-
 # ***********************************************************************
 
 
@@ -1468,7 +1472,6 @@ class Rectangle ( t_BaseShape ):
   def OnRightDown(self,event):
     print ('right down')
 # ***********************************************************************
-
 
 
 # ***********************************************************************

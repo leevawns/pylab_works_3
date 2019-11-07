@@ -280,9 +280,7 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
 
     # pass the Open File to the focussed widget
     FW = self.FindFocus ()
-    if hasattr ( FW, 'Filename' ) and \
-       ( os.path.splitext ( FW.Filename ) [1] == '.py' ) and \
-       hasattr ( FW, 'OnMenu_Open' ) :
+    if hasattr ( FW, 'Filename' ) and ( os.path.splitext ( FW.Filename ) [1] == '.py' ) and hasattr ( FW, 'OnMenu_Open' ) :
       FW.OnMenu_Open ()
       self.Set_Caption ( path_split ( FW.Filename ) [1], 1 )
       if hasattr ( FW,'My_Control' ) :
@@ -331,7 +329,6 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
     self._mgr.Update()
 
 
-
   def OnMenu_View_weg ( self, event ):
     aap = 0
     for pane in self._mgr.GetAllPanes() :
@@ -377,9 +374,7 @@ class my_App_Form ( wx.Frame, Menu_Event_Handler):
   def Menu_FileOpen ( self, Completion ) :
     pass
 
-  #def Test_RM ( self, event ) :
-  #  print 'SASH RM down'
-    
+   
   def Test ( self, event ) :
     if event.ButtonDown(wx.MOUSE_BTN_LEFT) :
       pass

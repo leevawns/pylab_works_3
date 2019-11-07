@@ -435,48 +435,6 @@ def GetNotCheckedImage():
     stream = BytesIO(GetNotCheckedData())
     return wx.Image(stream)
 
-'''
-change to use wx.Image.ConvertToGreyscale()
-def GrayOut(anImage):
-    """
-    Convert the given image (in place) to a grayed-out version,
-    appropriate for a 'disabled' appearance.
-    """
-    
-    factor = 0.7        # 0 < f < 1.  Higher Is Grayer
-    
-    if anImage.HasMask():
-        maskColor = (anImage.GetMaskRed(), anImage.GetMaskGreen(), anImage.GetMaskBlue())
-    else:
-        maskColor = None
-        
-    data = list(anImage.GetData())
-
-    for i in range(0, len(data), 3):
-        
-        pixel = (data[i], data[i+1], data[i+2])
-        pixel = MakeGray(pixel, factor, maskColor)
-
-        for x in range(3):
-            data[i+x] = pixel[x]
-
-    anImage.SetData(data)
-    
-    return anImage
-
-
-def MakeGray(r_g_b, factor, maskColor):
-    (r,g,b) = r_g_b
-    """
-    Make a pixel grayed-out. If the pixel matches the maskcolor, it won't be
-    changed.
-    """
-    if (r,g,b) != maskColor:
-        return list(map(lambda x: int((230 - x) * factor) + x, (r,g,b)))
-    else:
-        return (r,g,b)
-'''
-
 def DrawTreeItemButton(win, dc, rect, flags):
     """ A simple replacement of wx.RendererNative.DrawTreeItemButton. """
 
@@ -1787,42 +1745,6 @@ class CustomTreeCtrl_Modified_SM (wx.ScrolledWindow):
     def __init__(self, parent, id=wx.ID_ANY, pos=wx.DefaultPosition, size=wx.DefaultSize,
                  style=TR_DEFAULT_STYLE, ctstyle=0, validator=wx.DefaultValidator,
                  name="CustomTreeCtrl_Modified_SM"):
-        """
-        Default class constructor.
-        
-        parent: parent window. Must not be none.
-
-        id: window identifier. A value of -1 indicates a default value.
-
-        pos: window position.
-
-        size: window size. If the default size (-1, -1) is specified then the window is sized appropriately.
-
-        style: the underlying wx.ScrolledWindow style + CustomTreeCtrl window style. This can be one of:
-        
-            TR_NO_BUTTONS
-            TR_HAS_BUTTONS                          # draw collapsed/expanded btns
-            TR_NO_LINES                             # don't draw lines at all
-            TR_LINES_AT_ROOT                        # connect top-level nodes
-            TR_TWIST_BUTTONS                        # draw mac-like twist buttons
-            TR_SINGLE                               # single selection mode     
-            TR_MULTIPLE                             # can select multiple items
-            TR_EXTENDED                             # todo: allow extended selection
-            TR_HAS_VARIABLE_ROW_HEIGHT              # allows rows to have variable height
-            TR_EDIT_LABELS                          # can edit item labels
-            TR_ROW_LINES                            # put border around items
-            TR_HIDE_ROOT                            # don't display root node
-            TR_FULL_ROW_HIGHLIGHT                   # highlight full horizontal space
-            TR_AUTO_CHECK_CHILD                     # only meaningful for checkboxes
-            TR_AUTO_CHECK_PARENT                    # only meaningful for checkboxes
-            TR_AUTO_TOGGLE_CHILD                    # only meaningful for checkboxes
-
-        ctstyle: kept for backward compatibility.
-        
-        validator: window validator.
-
-        name: window name.
-        """
 
         style = style | ctstyle
         
