@@ -1,0 +1,5 @@
+pip install ConfigObj
+pip install wxpython
+pip install pygame
+pip install comtypes
+pip install scipy
